@@ -1,1 +1,38 @@
-
+body {
+  background-color: grey;
+}
+#title {
+  color: red;
+  font-size: 200%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#description {
+  text-align: center;
+  margin-below: 20x;
+}
+#numteams {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#teamnames {
+  margin-bottom: 10px;
+}
+#numplayers {
+  margin-bottom: 10px;
+}
+#createteams {
+  margin-bottom: 10px;
+}
+#draftorder {
+  margin-bottom: 60px;
+}
+#teamorder {
+  margin-bottom: 60px;
+}
+#roundtrans {
+  margin-bottom: 10px;
+}
+#version {
+  margin-bottom: 10px;
+}
