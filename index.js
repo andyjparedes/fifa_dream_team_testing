@@ -1,4 +1,5 @@
 function inputTeamNames() {
+    document.getElementById("teamnames").innerHTML = "";
     for (let i = 0; i < document.getElementById("drop1").value; i++) {
         let teamnames = document.getElementById("teamnames");
         let text = document.createTextNode("Team " + (i+1));
