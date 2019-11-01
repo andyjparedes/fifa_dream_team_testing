@@ -1,11 +1,11 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
+//import Card from 'react-bootstrap/Card';
 
 class CurrentDraft extends React.Component {
     render() {
         return(
             <div>
-                {getPlayers(["Ronaldo", "Messi"], 4)}
+                {this.getPlayers(["Ronaldo", "Messi"], 4)}
             </div>
         )
     }
@@ -18,14 +18,14 @@ class CurrentDraft extends React.Component {
                 count = 0;
             }
             count++;
-            render(
-                <Card>
-                    <Card.Body>
-                        <Card.Title>Player {count}</Card.Title>
-                        <Card.Subtitle>{player.name}</Card.Subtitle>
-                    </Card.Body>
-                </Card>
-            )
+            // tempList.push(
+            //     <Card>
+            //         <Card.Body>
+            //             <Card.Title>Player {count}</Card.Title>
+            //             <Card.Subtitle>{player.name}</Card.Subtitle>
+            //         </Card.Body>
+            //     </Card>
+            // )
         }
         return tempList;
     }
