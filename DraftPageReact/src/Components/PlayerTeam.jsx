@@ -6,7 +6,8 @@ import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css';
 //var database = firebase.database();
 
 /** Column config, field = name in JSON, headerName = how you would like to display it on website
- * 
+ *  For information regarding datatable API
+ * @see https://www.ag-grid.com/documentation-main/documentation.php
  */
 const columns = [
     { field: 'NAME', headerName: 'Name', },
