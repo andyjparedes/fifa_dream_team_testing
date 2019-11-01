@@ -14,10 +14,10 @@ class DraftPageMaster extends React.Component {
                     </h1>
                 </header>
                 <body className="draft-Body">
-                <PlayerDatabase></PlayerDatabase>
-                <PlayerTeam></PlayerTeam>
-                <CurrentDraft/>
-                <Formation/>
+                    <CurrentDraft/>
+                    <PlayerDatabase></PlayerDatabase>
+                    <PlayerTeam></PlayerTeam>
+                    <Formation/>
                 </body>
                 
                 <a
