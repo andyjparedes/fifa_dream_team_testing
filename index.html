@@ -20,7 +20,9 @@
                 the initial rules for your draft. Once you have  set the initial 
                 settings, you can proceed to the Drafting Page. If you need help 
                 or guidance, take a look at the example image at the bottom of 
-                the page. Happy drafting!</div>
+                the page.
+                <br/>Happy drafting!
+            </div>
             <div id="numteams">
                 <label>Choose number of teams</label>
                 <select id="drop1">
@@ -41,6 +43,7 @@
             <div id="numplayers">
                 <label>Choose number of players per team</label>
                 <select id="drop2">
+                    <option value="null"></option>
                     <option value="18">18</option>
                     <option value="20">20</option>
                     <option value="22">22</option>
@@ -95,9 +98,13 @@
             </div>
         </div>
         <!--Add an image of an example draft rules selection-->
-        <div id="example">**Example**</div>
+        <div id="example">
+            <img src="example.jpg" alt="example" width="500" height="250">
+        </div>
         <div id="next">
             <button id="draftpage">Drafting Page</button>
         </div>
     </body>
 </html>
+
+<!--Notes: When changing number  of teams, current blocks don't get deleted and just add onto it-->
