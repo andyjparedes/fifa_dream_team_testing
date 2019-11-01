@@ -2,11 +2,11 @@
 A project for CS506 Software Engineering at the University of Wisconsin - Madison.
 
 # Developers
-Andres Paredes
-Andrew Goethel
-Sean Cohen
-Kshitij Kumar
-William Bravo
+Andres Paredes / 
+Andrew Goethel / 
+Sean Cohen / 
+Kshitij Kumar / 
+William Bravo /
 
 # To Run
 ## Online
