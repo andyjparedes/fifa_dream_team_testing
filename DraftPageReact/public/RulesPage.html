@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+            name="description"
+            content="Web site created using create-react-app"
+        />
+        <link rel="apple-touch-icon" href="logo192.png" />
+        <!--
+            manifest.json provides metadata used when your web app is installed 
+            on a user's mobile device or desktop. See https://developers.google
+            .com/web/fundamentals/web-app-manifest/
+        -->
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <!--
+            Notice the use of %PUBLIC_URL% in the tags above.
+            It will be replaced with the URL of the `public` folder during the 
+            build. Only files inside the `public` folder can be referenced from 
+            the HTML.
+
+            Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" 
+            will work correctly both with client-side routing and a non-root 
+            public URL. Learn how to configure a non-root public URL by running 
+            `npm run build`.
+        -->
+        <title>FIFA Dream Team</title>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+        <!--
+            This HTML file is a template.
+            If you open it directly in the browser, you will see an empty page.
+
+            You can add webfonts, meta tags, or analytics to this file.
+            The build step will place the bundled scripts into the <body> tag.
+
+            To begin the development, run `npm start` or `yarn start`.
+            To create a production bundle, use `npm run build` or `yarn build`.
+        -->
+
+        <!--make text bigger and center it-->
+        <div id="title">FIFA Dream Team</div>
+        <!--container that holds the content of initial page-->
+        <div id="content">
+            <!--center the descrition-->
+            <!--change description formatting-->
+            <div id="description">Welcome to FIFA Dream Team! Here you can set 
+                the initial rules for your draft. Once you have  set the initial 
+                settings, you can proceed to the Drafting Page. If you need help 
+                or guidance, take a look at the example image at the bottom of 
+                the page. Happy drafting!</div>
+            <div id="numteams">
+                <label>Choose number of teams</label>
+                <select id="drop1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            <!--Leave space here (two rows) to allow for team names to pop up-->
+            <div id="teamnames">
+                <!--Add JS to display the number of teams selected for user to 
+                    edit team names-->
+            </div>
+            <div id="numplayers">
+                <label>Choose number of players per team</label>
+                <select id="drop2">
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="24">24</option>
+                    <option value="26">26</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                    <option value="42">42</option>
+                    <option value="44">44</option>
+                    <option value="46">46</option>
+                    <option value="48">48</option>
+                    <option value="50">50</option>
+                    <option value="52">52</option>
+                </select>
+            </div>
+            <div id="createteams">
+                <label>Create teams...</label>
+                <select id="drop3">
+                    <option value="drop3manually">Manually</option>
+                    <option value="drop3randomly">Randomly</option>
+                </select>
+            </div>
+            <div id="draftorder">
+                <label>Choose draft order</label>
+                <select id="drop4">
+                    <option value="drop4manually">Manually</option>
+                    <option value="drop4randomly">Randomly</option>
+                </select>
+            </div>
+            <!--Leave space here (six rows) to allow for team names to pop up-->
+            <div id="teamorder">
+                <!--Add JS to display the team names and allow user to change 
+                    the order-->
+            </div>
+            <div id="roundtrans">
+                <label>Draft rounds transition</label>
+                <select id="drop5">
+                    <option value="repeating">Repeating</option>
+                    <option value="snake">Snake</option>
+                </select>
+            </div>
+            <div id="version">
+                <label>FIFA version</label>
+                <select id="drop6">
+                    <option value="fifa19">FIFA 19</option>
+                </select>
+            </div>
+        </div>
+        <!--Add an image of an example draft rules selection-->
+        <div id="example">**Example**</div>
+    </body>
+</html>
