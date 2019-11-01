@@ -50,6 +50,12 @@ body {
 }
 #example {
   text-align: center;
+  padding: 5px;
+}
+#example_title {
+  text-align: center;
+  font-size: 125%;
+  margin-bottom: 10px;
 }
 #next {
   text-align: center;

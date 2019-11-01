@@ -3,47 +3,108 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="resultpage.js"></script>
+        <link rel="stylesheet" type="text/css" href="resultpage.css">
         <title>Resulting Page</title>
     </head>
     <body>
         <!--Add a video of the instructions-->
         <div id="title">Resulting Page</div>
-        <div id="instructions">Now that your teams have been created, you must
-            now load up your selected version of FIFA and manually transfer
-            the players to each certain team. For example, here are the steps
-            for performing this in FIFA 19.
-            <p>Step 0: Load up FIFA 19 to the Home Page</p>
-            <p>Step 1: Navigate to the Customize tab</p>
-            <p>Step 2: Select the Edit Teams section</p>
-            <p>Step 3: Select the Club Transfer section</p>
-            <p>Step 4: Select your desired team</p>
-            <p>Step 5: Select a player that should not be on your team but is
-                currently there, and put them on a different team
-            </p>
-            <p>Note: If your team reaches the minimum number of players allowed
-                by the game, then skip to Step
-            </p>
-            <p>Step 6: Repeat Step 5 until all players that should not be on
-                your team are no longer there
-            </p>
-            <p>Step 7: Search for a player that is on your Draft team, select 
-                that player, and add them to your desired team
-            </p>
-            <p>Note: If your desired team has too many players, go back to
-                Step 5
-            </p>
-            <p>Step 8: Repeat Step 7 until all players on your Draft team
-                are on nyour desired team
-            </p>
-            <p>Note: At this point, your desired team should match your Draft
-                team exactly
-            </p>
-            <p>Step 9: Repeat Steps 4-8 until all teams that participated in
-                the Draft have been edited to match each desired team
-            </p>
-            <p>Step 10: Enjoy playing with your new Draft teams in tournament
-                modes, Head-to-Head matches, or however else you would like!
-            </p>
+        <div id="teams">Teams</div>
+        <div id="instructions">
+            <div id="instruct_title">Instructions</div>
+            <div id="description">
+                Now that your teams have been created, you must
+                now load up your selected version of FIFA and manually transfer
+                the players to each certain team. For example, here are the steps
+                for performing this in FIFA 19.
+            </div>
+            <table>
+                <tr>
+                    <th width="12%">Step</th>
+                    <th width="78%">Instruction</th>
+                    <th width="10%">Done?</th>
+                </tr>
+                <tr>
+                    <td>Step 0</td>
+                    <td>Load up FIFA 19 to the Home Page</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Step 1</td>
+                    <td>Navigate to the Customize tab</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Step 2</td>
+                    <td>Select the Edit Teams section</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Step 3</td>
+                    <td>Select the Club Transfer section</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Step 4</td>
+                    <td>Select your desired team</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Step 5</td>
+                    <td>Select a player that should not be on your team but is
+                        currently there, and put them on a different team</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Note</td>
+                    <td>If your team reaches the minimum number of players allowed
+                    by the game, then skip to Step 7</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Step 6</td>
+                    <td>Repeat Step 5 until all players that should not be on
+                        your team are no longer there</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Step 7</td>
+                    <td>Search for a player that is on your Draft team, select 
+                        that player, and add them to your desired team</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Note</td>
+                    <td>If your desired team has too many players, go back to
+                        Step 5</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Step 8</td>
+                    <td>Repeat Step 7 until all players on your Draft team
+                        are on nyour desired team</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Note</td>
+                    <td>At this point, your desired team should match your Draft
+                        team exactly</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Step 9</td>
+                    <td>Repeat Steps 4-8 until all teams that participated in
+                        the Draft have been edited to match each desired team</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Step 10</td>
+                    <td>Enjoy playing with your new Draft teams in tournament
+                        modes, Head-to-Head matches, or however else you would like!</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>

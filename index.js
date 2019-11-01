@@ -1,4 +1,5 @@
 function inputTeamNames() {
+    document.getElementById("teamnames").innerHTML = "";
     for (let i = 0; i < document.getElementById("drop1").value; i++) {
         let teamnames = document.getElementById("teamnames");
         let text = document.createTextNode("Team " + (i+1));
@@ -21,7 +22,7 @@ function goToDraftPage() {
     localStorage.setItem("index_roundtrans", document.getElementById("drop5").value);
     localStorage.setItem("index_version", document.getElementById("drop6").value);
     
-    window.location = "/DraftPageReact/public/index.html";
+    window.location = "resultpage.html";
 }
 
 window.onload = function init() {
