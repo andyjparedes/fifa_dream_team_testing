@@ -19,6 +19,8 @@ The developers have independently been using different ways to run the code loca
 In terminal, type the following:
 
     npm install -g http-server
+    navigate to /DraftPageReact folder
+    npm run build <--- Builds the React app page for drafting, needed, otherwise draft page will not work for Dev, once prod ready, we will only include minified and built files for but ease of examining our code we left it unbuilt.
 
 ### Running
 In your directory with the index.html file, type the following
