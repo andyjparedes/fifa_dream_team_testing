@@ -4,6 +4,9 @@ import CurrentDraft from './CurrentDraft';
 import PlayerDatabase from './Components/Database.jsx';
 import PlayerTeam from './Components/PlayerTeam.jsx';
 import Button from '@material-ui/core/Button';
+import firebase from './Firebase/firebase'
+
+const numPlayers = 30; // This is to allow for testing, so that we do not run over our server quota by pulling the whole database every time. Will be increased to top 2000 during demos
 /** This is the parent Component of all the components in the Draft Page, so that state can be shared easily
  * 
  * @author shivi 
@@ -13,6 +16,37 @@ import Button from '@material-ui/core/Button';
  * 10/30 Component Created - shivi
  */
 class DraftPageMaster extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+		rows:[],
+            Teams: {
+                Team1:{},
+                Team2:{},
+                Team3:{},
+                Team4:{},
+                Team5:{},
+                Team6:{},
+            }
+		}
+    }
+    /** This function grabs the X number of players, and by default sorts by overall or rating
+     * 
+     * @author goethel 
+     * 
+     * CHANGELOG
+     * 11/2 - file created - goethel
+     */
+    componentDidMount() {
+        var that = this;
+        var mostViewedPosts = firebase.database().ref('Players').orderByChild('RATING').limitToLast(numPlayers).once("value").then(function(snapshot){
+            snapshot.forEach(function (childSnapshot) {
+                var childData = childSnapshot.val();
+                that.setState({rows:[...that.state.rows,childData]});
+            });
+        });    
+     
+    }
     render() {
         return(
             <div className="App">
@@ -23,9 +57,11 @@ class DraftPageMaster extends React.Component {
                 </header>
                 <body className="draft-Body">
                     <CurrentDraft/>
-                    <PlayerDatabase></PlayerDatabase>
-                    <PlayerTeam></PlayerTeam>
+                    <PlayerDatabase props={{rows:this.state.rows}}></PlayerDatabase>
+                    <div>
                     <Formation/>
+                    <PlayerTeam ></PlayerTeam>
+                    </div>
                     
                 </body>
                 <div>
