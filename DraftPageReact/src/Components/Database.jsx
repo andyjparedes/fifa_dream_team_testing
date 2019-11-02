@@ -12,8 +12,8 @@ const columns = [
     { field: 'NAME', headerName: 'Name', },
     { field: 'RATING', headerName: 'Overall' },
     { field: 'POSITION', headerName: 'Position' },
-    { field: 'SHOOTING', headerName: 'SHOOTING' },
-    { field: 'PACE', headerName: 'Pace' } ];
+	{ field: 'PACE', headerName: 'Pace' },
+	{ field: 'SHOOTING', headerName: 'Shooting' } ];
 /** This is the main class for displaying the player database for the Draft Page
  *  
  * @author goethel
