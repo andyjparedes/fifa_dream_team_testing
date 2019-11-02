@@ -1,9 +1,12 @@
 function inputTeamNames() {
+    document.getElementById("teamnames").innerHTML = "";
     for (let i = 0; i < document.getElementById("drop1").value; i++) {
         let teamnames = document.getElementById("teamnames");
+        let text = document.createTextNode("Team " + (i+1));
         let x = document.createElement("INPUT");
         x.setAttribute("id", "team" + (i+1));
         x.setAttribute("type", "text");
+        teamnames.appendChild(text);
         teamnames.appendChild(x);
     }
 }
@@ -19,7 +22,7 @@ function goToDraftPage() {
     localStorage.setItem("index_roundtrans", document.getElementById("drop5").value);
     localStorage.setItem("index_version", document.getElementById("drop6").value);
     
-    window.location = "draftpage.html";
+    window.location = "resultpage.html";
 }
 
 window.onload = function init() {

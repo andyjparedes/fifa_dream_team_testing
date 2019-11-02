@@ -1,15 +1,33 @@
 import React from 'react';
+//import Card from 'react-bootstrap/Card';
 
 class CurrentDraft extends React.Component {
     render() {
         return(
-            <div className="App">
+            <div>
+                {this.getPlayers(["Ronaldo", "Messi"], 4)}
             </div>
         )
     }
 
-    currentDraft(){
-
+    getPlayers(currentList, numOfPlayers){
+        var tempList = [];
+        var count = 0;
+        for(const player of currentList){
+            if(count === numOfPlayers){
+                count = 0;
+            }
+            count++;
+            // tempList.push(
+            //     <Card>
+            //         <Card.Body>
+            //             <Card.Title>Player {count}</Card.Title>
+            //             <Card.Subtitle>{player.name}</Card.Subtitle>
+            //         </Card.Body>
+            //     </Card>
+            // )
+        }
+        return tempList;
     }
 }
 

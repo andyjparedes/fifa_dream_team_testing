@@ -9,30 +9,54 @@ body {
 }
 #description {
   text-align: center;
-  margin-below: 20x;
+  margin-left: 18%;
+  margin-right: 18%;
+  margin-bottom: 20x;
 }
 #numteams {
+  text-align: center;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #teamnames {
   margin-bottom: 10px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+#team1, #team2, #team3, #team4, #team5, #team6 {
+  margin-right: 20px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 #numplayers {
+  text-align: center;
   margin-bottom: 10px;
 }
 #createteams {
+  text-align: center;
   margin-bottom: 10px;
 }
 #draftorder {
-  margin-bottom: 10px;
-}
-#teamorder {
+  text-align: center;
   margin-bottom: 10px;
 }
 #roundtrans {
+  text-align: center;
   margin-bottom: 10px;
 }
 #version {
+  text-align: center;
   margin-bottom: 10px;
+}
+#example {
+  text-align: center;
+  padding: 5px;
+}
+#example_title {
+  text-align: center;
+  font-size: 125%;
+  margin-bottom: 10px;
+}
+#next {
+  text-align: center;
 }
