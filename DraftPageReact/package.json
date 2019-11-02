@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "ag-grid-community": "^21.2.2",
     "ag-grid-react": "^21.2.2",
