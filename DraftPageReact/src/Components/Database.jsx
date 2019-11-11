@@ -52,7 +52,7 @@ const columns = [
 		  >
 			<AgGridReact
 			  columnDefs={columns}
-			  rowData={this.props.props.rows} onGridReady={(params)=> {params.api.sizeColumnsToFit()}} onColumnValueChanged={(params)=> {params.api.sizeColumnsToFit()}}>
+			  rowData={this.props.props.rows} onGridReady={(params)=> {params.api.sizeColumnsToFit()}} onColumnValueChanged={(params)=> {params.api.sizeColumnsToFit()}} onRowDoubleClicked={(event) => {this.props.props.handleClick(event.data)}}>
 			</AgGridReact>
 		  </div>);
     }

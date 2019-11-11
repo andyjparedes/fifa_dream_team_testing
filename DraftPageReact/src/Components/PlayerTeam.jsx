@@ -17,7 +17,7 @@ const gridOptions = {
 
 
 };
-/** This is the main class for displaying the player database for the Draft Page
+/** This is the main class for displaying the currently selecting teams players
  *  
  * @author goethel
  * @param props default props for a react component
