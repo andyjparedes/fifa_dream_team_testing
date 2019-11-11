@@ -9,13 +9,13 @@ import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css';
  * 
  */
 const columns = [
-    { field: 'NAME', headerName: 'Name', },
-    { field: 'RATING', headerName: 'Overall' },
-    { field: 'POSITION', headerName: 'Position' },
-	{ field: 'PACE', headerName: 'Pace' },
-	{ field: 'PASSING', headerName: 'Passing' },
-	{ field: 'DEFENDING', headerName: 'Defending' },
-	{ field: 'SHOOTING', headerName: 'Shooting' } ];
+    { field: 'NAME', headerName: 'Name'},
+    { field: 'RATING', headerName: 'Overall',sortable:true,filter:"agNumberColumnFilter"  },
+    { field: 'POSITION', headerName: 'Position',sortable:true  },
+	{ field: 'PACE', headerName: 'Pace',sortable:true,filter:"agNumberColumnFilter"   },
+	{ field: 'PASSING', headerName: 'Passing',sortable:true,filter:"agNumberColumnFilter"   },
+	{ field: 'DEFENDING', headerName: 'Defending',sortable:true,filter:"agNumberColumnFilter"   },
+	{ field: 'SHOOTING', headerName: 'Shooting',sortable:true,filter:"agNumberColumnFilter"   } ];
 /** This is the main class for displaying the player database for the Draft Page
  *  
  * @author goethel
