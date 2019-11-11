@@ -59,7 +59,7 @@ const  handleConfirmed = () => {
 }
 
 const numPlayers = 30; // This is to allow for testing/development, so that we do not run over our server quota by pulling the whole database every time. Will be increased to top 2000 during demos
-
+const data=require('./Player.json');
 /** This is the parent Component of all the components in the Draft Page, so that state can be shared easily
  * 
  * @author shivi 
@@ -75,7 +75,6 @@ class DraftPageMaster extends React.Component {
         super(props);
         this.state = {
 		rows:[],
-        
                 1:{},
                 2:{},
                 3:{},
@@ -83,10 +82,13 @@ class DraftPageMaster extends React.Component {
                 5:{},
                 6:{},
                 
-        NumPlayersTeam:48,
+        NumPlayersTeam:12, // Number of players per team (48 is a bit much!)
+        numTeams:6, // number of teams
         DialogState:false,
         curPlayerSelected:"",
         curTeam:1,
+        draftType:"normal", // Snake or Normal
+        pickNum:1 // CUrrent Pick #
         }
 
     // Any function used in callback must be bound here or React will not work with them
@@ -103,13 +105,14 @@ class DraftPageMaster extends React.Component {
      */
     componentDidMount() {
         var that = this;
-        var mostViewedPosts = firebase.database().ref('Players').orderByChild('RATING').limitToLast(numPlayers).once("value").then(function(snapshot){
-            snapshot.forEach(function (childSnapshot) {
-                var childData = childSnapshot.val();
-                // This is where checks for Drafted players will occur
-                that.setState({rows:[...that.state.rows,childData]});
-            });
-        });    
+        // var mostViewedPosts = firebase.database().ref('Players').orderByChild('RATING').limitToLast(numPlayers).once("value").then(function(snapshot){
+        //     snapshot.forEach(function (childSnapshot) {
+        //         var childData = childSnapshot.val();
+        //         // This is where checks for Drafted players will occur
+        //         that.setState({rows:[...that.state.rows,childData]});
+        //     });
+        // });    
+        this.setState({rows:data})
      
     }
     /** This handles the initial opening of the DialogBox after the user double clicks on a player in the Data Grid
@@ -128,7 +131,31 @@ class DraftPageMaster extends React.Component {
      * 
      */
     handleConfirmDraft() {
-        this.setState({DialogState:false});
+        this.setState({DialogState:false,pickNum:(this.state.pickNum+1)});
+        if(this.isDraftDone() == true) {
+            this.DraftFinished();
+        }
+        else {
+            // Code for switching to next pick
+            
+        }
+    }
+    /** This function will check if Draft is Done or not, treat as js function
+     * 
+     */
+    isDraftDone() {
+        if(this.state.pickNum == this.state.numTeams*this.state.NumPlayersTeam) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    /** This Function handles the eventual switchover to Results Page, and stores the Team data into the local browser storage to be used by the Results Page
+     * 
+     */
+    DraftFinished() {
+
     }
     render() {
         return(
