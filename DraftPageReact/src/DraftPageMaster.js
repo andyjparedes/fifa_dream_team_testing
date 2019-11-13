@@ -75,20 +75,23 @@ class DraftPageMaster extends React.Component {
         super(props);
         this.state = {
 		rows:[],
-                1:{},
-                2:{},
-                3:{},
-                4:{},
-                5:{},
-                6:{},
+                t1:[],
+                t2:[],
+                t3:[],
+                t4:[],
+                t5:[],
+                t6:[],
                 
         NumPlayersTeam:12, // Number of players per team (48 is a bit much!)
         numTeams:6, // number of teams
         DialogState:false,
-        curPlayerSelected:"",
-        curTeam:1,
+        curPlayerSelected:"", // The player that the user double clicked on
+        draftedPlayer:"", // This variable will update with the last drafted player
+        curTeam:1, // Allows Players to select which team drafts first
         draftType:"normal", // Snake or Normal
+        snakeDraftSide:1, // Snake going forward round (1234) or backwards round (4321)
         pickNum:1 // CUrrent Pick #
+
         }
 
     // Any function used in callback must be bound here or React will not work with them
@@ -101,41 +104,119 @@ class DraftPageMaster extends React.Component {
      * @author goethel 
      * 
      * CHANGELOG
+     * 11/5 - added option for local DB usage - goethel
      * 11/2 - file created - goethel
      */
     componentDidMount() {
+        var myData = Object.keys(data).map(key => {
+            return data[key];
+        })
         var that = this;
-        // var mostViewedPosts = firebase.database().ref('Players').orderByChild('RATING').limitToLast(numPlayers).once("value").then(function(snapshot){
-        //     snapshot.forEach(function (childSnapshot) {
-        //         var childData = childSnapshot.val();
-        //         // This is where checks for Drafted players will occur
-        //         that.setState({rows:[...that.state.rows,childData]});
-        //     });
-        // });    
-        this.setState({rows:data})
+        if(false) {
+        var mostViewedPosts = firebase.database().ref('Players').orderByChild('RATING').limitToLast(numPlayers).once("value").then(function(snapshot){
+            snapshot.forEach(function (childSnapshot) {
+                var childData = childSnapshot.val();
+                // This is where checks for Drafted players will occur
+                that.setState({rows:[...that.state.rows,childData]});
+            });
+        });   
+        } 
+        this.setState({rows:myData})
      
     }
     /** This handles the initial opening of the DialogBox after the user double clicks on a player in the Data Grid
      * 
      */
-    handleClick(playerSelected) {
-        this.setState({DialogState:true,curPlayerSelected:playerSelected})
+    handleClick(event) {
+
+       this.gridApi = event.api;
+        this.rowNode = event.node;
+        this.setState({DialogState:true,curPlayerSelected:event.data})
     }
     /** This function closes the dialog box, if the user clicks cancel
      * 
+     * 
+     * 11/11 - Function Created
      */
     handleClose() {
         this.setState({DialogState:false})
     }
+    /** This function adds the drafted player to the correct team
+     * @author goethel
+     * 
+     * 11/13 - Function Created
+     */
+    addPlayerToTeam() {
+        let team = this.state.curTeam;
+
+        if(team ==1) {
+            this.setState({t1:(this.state.t1.concat(this.state.curPlayerSelected))});
+        }
+        else if(team ==2) {
+            this.setState({t2:(this.state.t2.concat(this.state.curPlayerSelected))});
+        }
+        else if(team ==3) {
+            this.setState({t3:(this.state.t3.concat(this.state.curPlayerSelected))});
+        }
+        else if(team ==4) {
+            this.setState({t4:(this.state.t4.concat(this.state.curPlayerSelected))});
+        }
+        else if(team ==5) {
+            this.setState({t5:(this.state.t5.concat(this.state.curPlayerSelected))});
+        }
+        else if(team ==6) {
+            this.setState({t6:(this.state.t6.concat(this.state.curPlayerSelected))});
+        }
+    }
+    /** This function removes a drafted player from the data grid
+     * 
+     */
+    onRemoveSelected() {
+        var res = this.gridApi.updateRowData({ remove: [this.rowNode.data] });
+        console.log(res);
+      }
     /** This is the function where the switchover code for changing who is drafting should occur
      * 
      */
     handleConfirmDraft() {
-        this.setState({DialogState:false,pickNum:(this.state.pickNum+1)});
+        this.setState({DialogState:false,pickNum:(this.state.pickNum+1),draftedPlayer:this.state.curPlayerSelected});
+        this.addPlayerToTeam();
+       
+            this.onRemoveSelected();
+        
         if(this.isDraftDone() == true) {
             this.DraftFinished();
         }
         else {
+            if(this.state.draftType == "normal") {
+                if(this.state.curTeam==this.state.numTeams) {
+                    this.setState({curTeam:1});
+                }
+                else {
+                    this.setState({curTeam:(this.state.curTeam+1)})
+                }
+            }
+            // Code for evaluating next pick in snake draft
+            else if(this.state.draftType == "snake") {
+                console.log(this.state.curTeam+", forward/back:"+this.state.snakeDraftSide); // debug
+                    if(this.state.snakeDraftSide == 1) {
+                        if(this.state.curTeam == this.state.numTeams) {
+                            this.setState({snakeDraftSide:0})
+                        }
+                        else {
+                        this.setState({curTeam:(this.state.curTeam+1)})
+                        }
+                    }
+                    else {
+                        if(this.state.curTeam == 1) {
+                            this.setState({snakeDraftSide:1})
+                        }
+                        else {
+                        this.setState({curTeam:(this.state.curTeam-1)})
+                        }
+                    }
+                
+            }
             // Code for switching to next pick
             
         }
@@ -155,15 +236,16 @@ class DraftPageMaster extends React.Component {
      * 
      */
     DraftFinished() {
-
+        window.href("../../resultpage.html");
     }
     render() {
         return(
             <div className="App">
                 <header className="App-header">
                     <h1>
-                    This is the shell of the Draft Page
+                    Team {this.state.curTeam} currently drafting
                     </h1>
+                    <h2>Pick Number {this.state.pickNum}</h2>
                 </header>
                 <body className="draft-Body">
                 
@@ -172,7 +254,7 @@ class DraftPageMaster extends React.Component {
                     <PlayerDatabase props={{rows:this.state.rows,handleClick:this.handleClick}}></PlayerDatabase>
                     <div>
                     <Formation/>
-                    <PlayerTeam ></PlayerTeam>
+                    <PlayerTeam curTeam={this.state.curTeam} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} t6={this.state.t6}></PlayerTeam>
                     </div>
                     
                 </body>

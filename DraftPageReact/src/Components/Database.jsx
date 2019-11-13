@@ -15,7 +15,7 @@ const columns = [
 	{ field: 'PACE', headerName: 'Pace',sortable:true,filter:"agNumberColumnFilter"   },
 	{ field: 'PASSING', headerName: 'Passing',sortable:true,filter:"agNumberColumnFilter"   },
 	{ field: 'DEFENDING', headerName: 'Defending',sortable:true,filter:"agNumberColumnFilter"   },
-	{ field: 'SHOOTING', headerName: 'Shooting',sortable:true,filter:"agNumberColumnFilter"   } ];
+	{ field: 'SHOOTING', headerName: 'Shooting',sortable:true,filter:"agNumberColumnFilter" } ];
 /** This is the main class for displaying the player database for the Draft Page
  *  
  * @author goethel
@@ -31,6 +31,7 @@ const columns = [
 		this.state = {
 			rows:this.props.props.rows
 		}
+		
 	}
 	componentDidMount() {
 		
@@ -41,7 +42,13 @@ const columns = [
      */
     getPlayer(header) {
         
-    }
+	}
+	onGridReady = params => {
+		this.gridApi = params.api;
+		this.gridColumnApi = params.columnApi;
+		params.api.sizeColumnsToFit();
+		
+	  };
     render() {
         return (
 			<div 
@@ -52,7 +59,7 @@ const columns = [
 		  >
 			<AgGridReact
 			  columnDefs={columns}
-			  rowData={this.props.props.rows} onGridReady={(params)=> {params.api.sizeColumnsToFit()}} onColumnValueChanged={(params)=> {params.api.sizeColumnsToFit()}} onRowDoubleClicked={(event) => {this.props.props.handleClick(event.data)}}>
+			  rowData={this.props.props.rows} onGridReady={this.onGridReady} onColumnValueChanged={(params)=> {params.api.sizeColumnsToFit()}} onRowDoubleClicked={(event) => { this.props.props.handleClick(event)}} animateRows={true}>
 			</AgGridReact>
 		  </div>);
     }
