@@ -247,7 +247,7 @@ class DraftPageMaster extends React.Component {
                     </h1>
                     <h2>Pick Number {this.state.pickNum}</h2>
                 </header>
-                <body className="draft-Body">
+                <div className="draft-Body">
                 
                     <DialogBox props={{DialogState:this.state.DialogState,handleClose:this.handleClose,handleConfirmDraft:this.handleConfirmDraft,player:this.state.curPlayerSelected}}></DialogBox>
                     <CurrentDraft/>
@@ -257,9 +257,9 @@ class DraftPageMaster extends React.Component {
                     <PlayerTeam curTeam={this.state.curTeam} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} t6={this.state.t6}></PlayerTeam>
                     </div>
                     
-                </body>
+                </div>
                 <div>
-                <Button href="../../resultpage.html" color="primary" variant="contained" className="results">Results Page (TESTING ONLY)</Button>
+                <Button href="../../tradingpage.html" color="primary" variant="contained" className="results">Results Page (TESTING ONLY)</Button>
                 </div>
                 
                 <a

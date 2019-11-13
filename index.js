@@ -35,8 +35,8 @@ function goToDraftPage() {
     localStorage.setItem("index_roundtrans", document.getElementById("drop5").value);
     localStorage.setItem("index_version", document.getElementById("drop6").value);
     
-    window.location = "tradingpage.html";
-    //window.location = "DraftPageReact/build/index.html";
+    //window.location = "tradingpage.html";
+    window.location = "DraftPageReact/build/index.html";
 }
 
 // initialize the listeners for the page
