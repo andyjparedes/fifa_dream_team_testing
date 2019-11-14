@@ -50,6 +50,6 @@
     "jest-environment-jsdom-fourteen": "^0.1.0"
   },
   "jest": {
-    "coveragePathIgnorePatterns": ["./DraftPageReact/build/", "./DraftPageReact/node_modules/"]
+    
   }
 }

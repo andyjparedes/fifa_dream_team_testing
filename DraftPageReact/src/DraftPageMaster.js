@@ -20,7 +20,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
  * CHANGES
  * 11/11 - Function Created, Code moved outside of class to avoid Hook errors with react - goethel
  */
-const DialogBox = (params) => {
+export const DialogBox = (params) => {
     const [open, setOpen] = React.useState(false);
     
 if(params.props.DialogState == true && open == false) {
@@ -93,7 +93,6 @@ class DraftPageMaster extends React.Component {
         pickNum:1 // CUrrent Pick #
 
         }
-
     // Any function used in callback must be bound here or React will not work with them
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -181,8 +180,9 @@ class DraftPageMaster extends React.Component {
     handleConfirmDraft() {
         this.setState({DialogState:false,pickNum:(this.state.pickNum+1),draftedPlayer:this.state.curPlayerSelected});
         this.addPlayerToTeam();
-       
-            this.onRemoveSelected();
+       if(this.state.draftedPlayer != "") {
+        this.onRemoveSelected();
+       }
         
         if(this.isDraftDone() == true) {
             this.DraftFinished();
@@ -225,7 +225,7 @@ class DraftPageMaster extends React.Component {
      * 
      */
     isDraftDone() {
-        if(this.state.pickNum == this.state.numTeams*this.state.NumPlayersTeam) {
+        if(this.state.pickNum >= this.state.numTeams*this.state.NumPlayersTeam) {
             return true;
         }
         else {
