@@ -1,21 +1,26 @@
-body {
-  background-color: grey;
+body, html {
+  background-image: url("https://i.pinimg.com/originals/19/1b/6d/191b6d669f008bfaf3950dd3e71ec2ca.jpg");
 }
 #title {
-  color: red;
-  font-size: 200%;
+  font-size: 400%;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
+  color: grey;
+  font-family: sans-serif;
 }
 #description {
+  font-size: 85%;
   text-align: center;
-  margin-left: 18%;
-  margin-right: 18%;
-  margin-bottom: 20x;
+  color: white;
+  font-family: sans-serif;
+  margin-bottom: 30px;
 }
 #numteams {
+  font-size: 120%;
   text-align: center;
-  margin-top: 10px;
+  color: white;
+  font-family: sans-serif;
   margin-bottom: 10px;
 }
 #teamnames {
@@ -29,34 +34,79 @@ body {
   margin-bottom: 10px;
 }
 #numplayers {
+  font-size: 120%;
   text-align: center;
+  color: white;
+  font-family: sans-serif;
   margin-bottom: 10px;
+  margin-right: 1px;
+  margin-left: 1px;
 }
 #createteams {
+  font-size: 120%;
   text-align: center;
+  color: white;
+  font-family: sans-serif;
   margin-bottom: 10px;
 }
 #draftorder {
+  font-size: 120%;
   text-align: center;
+  color: white;
+  font-family: sans-serif;
   margin-bottom: 10px;
 }
 #roundtrans {
+  font-size: 120%;
   text-align: center;
+  color: white;
+  font-family: sans-serif;
   margin-bottom: 10px;
 }
 #version {
+  font-size: 120%;
   text-align: center;
-  margin-bottom: 10px;
+  color: white;
+  font-family: sans-serif;
+  margin-bottom: 40px;
 }
 #example {
-  text-align: center;
-  padding: 5px;
+ text-align: center;
+  font-size: 120%;
+  font-family: sans-serif;
+  margin-bottom: 10px;
 }
 #example_title {
   text-align: center;
-  font-size: 125%;
+  font-size: 120%;
+  font-family: sans-serif;
   margin-bottom: 10px;
 }
 #next {
   text-align: center;
+}
+#ronaldo {
+ height: 75%;
+}
+#messi   {
+  height: 75%;
+} 
+#left {
+float:left;
+height: 700px;
+}
+#center {
+margin: auto;
+text-align: center;
+}
+#right {
+float: right;
+height: 700px;
+}
+#content {
+ height: 70%;
+}
+#video {
+ margin: auto;
+text-align: center;
 }
