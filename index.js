@@ -31,7 +31,7 @@ function goToDraftPage() {
     }
     localStorage.setItem("index_numplayers", document.getElementById("drop2").value);
     localStorage.setItem("index_createteams", document.getElementById("drop3").value);
-    localStorage.setItem("index_draftorder", document.getElementById("drop4").value);
+    //localStorage.setItem("index_draftorder", document.getElementById("drop4").value);
     localStorage.setItem("index_roundtrans", document.getElementById("drop5").value);
     localStorage.setItem("index_version", document.getElementById("drop6").value);
     
@@ -43,4 +43,5 @@ function goToDraftPage() {
 window.onload = function init() {
     this.document.getElementById("draftpage").addEventListener("click", goToDraftPage);
     this.document.getElementById("drop1").addEventListener("change", inputTeamNames);
+    this.localStorage.clear();
 }

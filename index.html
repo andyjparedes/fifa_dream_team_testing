@@ -14,23 +14,16 @@
 
         <!--container that holds the content of initial page-->
         <div id="content">
-            <div id="left">
-            <img src="https://www.searchpng.com/wp-content/uploads/2019/01/Cristiano-Ronaldo-PNG-715x982.png" id="ronaldo">
-            </div>
-            <div id="right">    
-            <img src="https://www.trzcacak.rs/file/max/69/694538_messi-png-2017.png" id="messi">
-	    </div>
-            <div id="center">
-	    <div id="description">Welcome to FIFA Dream Team! Here you can set 
-                the initial rules for your draft. 
-                <br/>Once you have  set the initial settings, you can proceed to the Drafting Page. 
-                <br/>If you need help or guidance, take a look at the example image at the bottom of the page.
+            <div id="description">Welcome to FIFA Dream Team! Here you can set 
+                the initial rules for your draft. Once you have  set the initial 
+                settings, you can proceed to the Drafting Page. If you need help 
+                or guidance, take a look at the example image at the bottom of 
+                the page.
                 <br/>Happy drafting!
             </div>
             <!--User input for numer of teams participating in draft-->
             <div id="numteams">
                 <label>Choose number of teams</label>
-                <br/>
                 <select id="drop1">
                     <option value="null"></option>
                     <option value="1">1</option>
@@ -48,47 +41,31 @@
             <!--User input for number of players per team-->
             <div id="numplayers">
                 <label>Choose number of players per team</label>
-                <br/>
                 <select id="drop2">
                     <option value="null"></option>
+                    <option value="5">5</option>
                     <option value="18">18</option>
                     <option value="20">20</option>
                     <option value="22">22</option>
                     <option value="24">24</option>
                     <option value="26">26</option>
-                    <option value="28">28</option>
-                    <option value="30">30</option>
-                    <option value="32">32</option>
-                    <option value="34">34</option>
-                    <option value="36">36</option>
-                    <option value="38">38</option>
-                    <option value="40">40</option>
-                    <option value="42">42</option>
-                    <option value="44">44</option>
-                    <option value="46">46</option>
-                    <option value="48">48</option>
-                    <option value="50">50</option>
-                    <option value="52">52</option>
                 </select>
             </div>
             <!--User input for how teams will be created-->
             <div id="createteams">
                 <label>Create teams...</label>
-                <br/>
-                <select id="drop3"
+                <select id="drop3">
                     <option value="drop3manually">Manually</option>
                     <!--Randomly option will be implemented in later iteration-->
                 </select>
             </div>
             <!--User input for the order of drafting for each team-->
-            <div id="draftorder">
+            <!--<div id="draftorder">
                 <label>Choose draft order</label>
-                <br/>
                 <select id="drop4">
                     <option value="drop4randomly">Randomly</option>
-                    <!--Manually option will be implemented in later iteration-->
                 </select>
-            </div>
+            </div>-->
             <!--User is able to change the ordering of the draft if the 
                 Manually option is selected for draftorder-->
             <div id="teamorder">
@@ -97,7 +74,6 @@
             <!--User input for the round transition of the draft-->
             <div id="roundtrans">
                 <label>Draft rounds transition</label>
-                <br/>
                 <select id="drop5">
                     <option value="repeating">Repeating</option>
                     <option value="snake">Snake</option>
@@ -106,22 +82,19 @@
             <!--User input for the version of FIFA to be used in the Draft-->
             <div id="version">
                 <label>FIFA version</label>
-                <br/>
-		<select id="drop6">
+                <select id="drop6">
                     <option value="fifa19">FIFA 19</option>
                     <!--More versions will be added in a later iteration-->
                 </select>
+            </div>
         </div>
         <!--A video example of the recommended settings for a draft-->
         <div id="example">
-            <label>Example Video</label>
-        </div>
-	<div id="video">
-	     <video width="700" height="350" controls>
+            <div id="example_title">Example Video</div>
+            <video width="700" height="350" controls>
                 <source src="example.mp4" type="video/mp4">
                 Your browser does not support this video formatting
             </video>
-	</div>
         </div>
         <!--Button which takes you to the Resulting Page-->
         <div id="next">
