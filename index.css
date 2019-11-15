@@ -7,6 +7,9 @@ body {
   text-align: center;
   margin-bottom: 10px;
 }
+#content {
+
+}
 #description {
   text-align: center;
   margin-left: 18%;
@@ -17,6 +20,9 @@ body {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+#drop1 {
+
 }
 #teamnames {
   margin-bottom: 10px;
@@ -32,21 +38,29 @@ body {
   text-align: center;
   margin-bottom: 10px;
 }
+#drop2 {
+
+}
 #createteams {
   text-align: center;
   margin-bottom: 10px;
 }
-#draftorder {
-  text-align: center;
-  margin-bottom: 10px;
+#drop3 {
+
 }
 #roundtrans {
   text-align: center;
   margin-bottom: 10px;
 }
+#drop4 {
+
+}
 #version {
   text-align: center;
   margin-bottom: 10px;
+}
+#drop5 {
+
 }
 #example {
   text-align: center;
@@ -59,4 +73,7 @@ body {
 }
 #next {
   text-align: center;
+}
+#draftpage {
+
 }

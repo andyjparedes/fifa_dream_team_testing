@@ -1,4 +1,6 @@
-// Allows user to input the team names for each participating team
+/* 
+ * allows user to input the team names for each participating team
+ */
 function inputTeamNames() {
     //clear the space
     //this is necessary if the user changes their mind on number of teams
@@ -22,8 +24,10 @@ function inputTeamNames() {
     }
 }
 
-// the result of clicking the Draft Page Button
-// stores the user input into local storage
+/* 
+ * the result of clicking the Draft Page Button
+ * stores the user input into local storage
+ */
 function goToDraftPage() {
     localStorage.setItem("index_numteams", document.getElementById("drop1").value);
     for (let i = 0; i < document.getElementById("drop1").value; i++) {
@@ -31,16 +35,17 @@ function goToDraftPage() {
     }
     localStorage.setItem("index_numplayers", document.getElementById("drop2").value);
     localStorage.setItem("index_createteams", document.getElementById("drop3").value);
-    localStorage.setItem("index_draftorder", document.getElementById("drop4").value);
-    localStorage.setItem("index_roundtrans", document.getElementById("drop5").value);
-    localStorage.setItem("index_version", document.getElementById("drop6").value);
+    localStorage.setItem("index_roundtrans", document.getElementById("drop4").value);
+    localStorage.setItem("index_version", document.getElementById("drop5").value);
     
-    //window.location = "tradingpage.html";
-    window.location = "DraftPageReact/build/index.html";
+    window.location = "DraftPageReact/build/index.html"; // go to Drafting Page
 }
 
-// initialize the listeners for the page
+/* 
+ * initialize the listeners for the page
+ */
 window.onload = function init() {
     this.document.getElementById("draftpage").addEventListener("click", goToDraftPage);
     this.document.getElementById("drop1").addEventListener("change", inputTeamNames);
+    this.localStorage.clear(); // clear the local storage for testing or a new draft
 }
