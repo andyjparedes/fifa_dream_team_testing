@@ -107,8 +107,14 @@ class DraftPageMaster extends React.Component {
      * 11/2 - file created - goethel
      */
     componentDidMount() {
+        debugger;
         var myData = Object.keys(data).map(key => {
-            return data[key];
+            if(!(data[key].CLUB == "Icons")) {
+                return data[key];
+            }
+            else {
+                delete data[key];
+            }
         })
         var that = this;
         if(false) {
@@ -236,6 +242,7 @@ class DraftPageMaster extends React.Component {
      * 
      */
     DraftFinished() {
+        // Place finished teams here.
         window.href("../../resultpage.html");
     }
     render() {
