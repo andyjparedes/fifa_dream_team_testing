@@ -82,17 +82,14 @@ class DraftPageMaster extends React.Component {
                 t5:[],
                 t6:[], 
                 
-        //NumPlayersTeam:12, // Number of players per team (48 is a bit much!)
-        NumPlayersTeam: localStorage.getItem("index_numplayers"),
-        //numTeams:6, // number of teams
-        numTeams: localStorage.getItem("index_numteams"),
+        NumPlayersTeam: localStorage.getItem("index_numplayers"), // Number of players per team
+        numTeams: localStorage.getItem("index_numteams"), // Number of teams
         DialogState:false,
         curPlayerSelected:"", // The player that the user double clicked on
         draftedPlayer:"", // This variable will update with the last drafted player
         curTeam:1, // Allows Players to select which team drafts first
-        curTeamName: localStorage.getItem("index_team" + 1),
-        //draftType:"normal", // Snake or Normal
-        draftType: localStorage.getItem("index_roundtrans"),
+        curTeamName: localStorage.getItem("index_team" + 1), // Team name of current team
+        draftType: localStorage.getItem("index_roundtrans"), // Snake or Normal draft
         snakeDraftSide:1, // Snake going forward round (1234) or backwards round (4321)
         pickNum:1, // Current Pick #
         }

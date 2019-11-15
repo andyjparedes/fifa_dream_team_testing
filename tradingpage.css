@@ -1,18 +1,10 @@
 body {
-    background-color: grey;
+
 }
 #title {
-    color: red;
-    font-size: 200%;
-    text-align: center;
-    margin-bottom: 10px;
+
 }
-#teams {
-    font-size: 200%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-#team1, #team2, #team3, #team4, #team5, #team6 {
+#team1,#team2,#team3,#team4,#team5,#team6 {
 
 }
 #team1_player1,#team1_player2,#team1_player3,#team1_player4,#team1_player5,
@@ -63,26 +55,9 @@ body {
 #team6_player26 {
     
 }
-#instructions {
-    text-align: center;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 20x;
+#next {
+
 }
-#instruct_title {
-    font-size: 125%;
-    margin-bottom: 10px;
-}
-#description {
+#resultpage {
     
-}
-table {
-    margin-top: 20px;
-    border-collapse: collapse;
-    width: 100%;
-}
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
 }

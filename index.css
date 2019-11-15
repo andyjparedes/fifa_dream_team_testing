@@ -1,27 +1,28 @@
-body, html {
-  background-image: url("https://i.pinimg.com/originals/19/1b/6d/191b6d669f008bfaf3950dd3e71ec2ca.jpg");
+body {
+  background-color: grey;
 }
 #title {
-  font-size: 400%;
-  font-weight: bold;
+  color: red;
+  font-size: 200%;
   text-align: center;
   margin-bottom: 10px;
-  color: grey;
-  font-family: sans-serif;
+}
+#content {
+
 }
 #description {
-  font-size: 85%;
   text-align: center;
-  color: white;
-  font-family: sans-serif;
-  margin-bottom: 30px;
+  margin-left: 18%;
+  margin-right: 18%;
+  margin-bottom: 20x;
 }
 #numteams {
-  font-size: 120%;
   text-align: center;
-  color: white;
-  font-family: sans-serif;
+  margin-top: 10px;
   margin-bottom: 10px;
+}
+#drop1 {
+
 }
 #teamnames {
   margin-bottom: 10px;
@@ -34,79 +35,45 @@ body, html {
   margin-bottom: 10px;
 }
 #numplayers {
-  font-size: 120%;
   text-align: center;
-  color: white;
-  font-family: sans-serif;
   margin-bottom: 10px;
-  margin-right: 1px;
-  margin-left: 1px;
+}
+#drop2 {
+
 }
 #createteams {
-  font-size: 120%;
   text-align: center;
-  color: white;
-  font-family: sans-serif;
   margin-bottom: 10px;
 }
-#draftorder {
-  font-size: 120%;
-  text-align: center;
-  color: white;
-  font-family: sans-serif;
-  margin-bottom: 10px;
+#drop3 {
+
 }
 #roundtrans {
-  font-size: 120%;
   text-align: center;
-  color: white;
-  font-family: sans-serif;
   margin-bottom: 10px;
+}
+#drop4 {
+
 }
 #version {
-  font-size: 120%;
   text-align: center;
-  color: white;
-  font-family: sans-serif;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+#drop5 {
+
 }
 #example {
- text-align: center;
-  font-size: 120%;
-  font-family: sans-serif;
-  margin-bottom: 10px;
+  text-align: center;
+  padding: 5px;
 }
 #example_title {
   text-align: center;
-  font-size: 120%;
-  font-family: sans-serif;
+  font-size: 125%;
   margin-bottom: 10px;
 }
 #next {
   text-align: center;
 }
-#ronaldo {
- height: 75%;
-}
-#messi   {
-  height: 75%;
-} 
-#left {
-float:left;
-height: 700px;
-}
-#center {
-margin: auto;
-text-align: center;
-}
-#right {
-float: right;
-height: 700px;
-}
-#content {
- height: 70%;
-}
-#video {
- margin: auto;
-text-align: center;
+#draftpage {
+
 }
