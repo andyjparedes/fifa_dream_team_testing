@@ -11,15 +11,16 @@ function inputTeamNames() {
         let teamnames = document.getElementById("teamnames");
 
         //create a leading text to describe which team it is
-        let text = document.createTextNode("Team " + (i+1));
+        // let text = document.createTextNode("Team " + (i+1));
 
         //create the actual input boxes
         let x = document.createElement("INPUT");
-        x.setAttribute("id", "team" + (i+1));
+        x.setAttribute("placeholder", "Team Name " + (i+1));
         x.setAttribute("type", "text");
+        x.setAttribute("padding", "12px 20px");
 
         //add the elements to the page
-        teamnames.appendChild(text);
+        // teamnames.appendChild(text);
         teamnames.appendChild(x);
     }
 }

@@ -27,6 +27,11 @@ body, html {
   margin-bottom: 10px;
 }
 #drop1 {
+  background-color: #f3f3f3;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 10px;
+  border: none;
 
 }
 #teamnames {
@@ -49,6 +54,11 @@ body, html {
   margin-left: 1px;
 }
 #drop2 {
+  background-color: #f3f3f3;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 10px;
+  border: none;
 
 }
 #createteams {
@@ -59,6 +69,11 @@ body, html {
   margin-bottom: 10px;
 }
 #drop3 {
+  background-color: #f3f3f3;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 10px;
+  border: none;
 
 }
 #roundtrans {
@@ -69,6 +84,11 @@ body, html {
   margin-bottom: 10px;
 }
 #drop4 {
+  background-color: #f3f3f3;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 10px;
+  border: none;
 
 }
 #version {
@@ -79,6 +99,11 @@ body, html {
   margin-bottom: 40px;
 }
 #drop5 {
+  background-color: #f3f3f3;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 10px;
+  border: none;
 
 }
 #example {
@@ -115,5 +140,56 @@ body, html {
   text-align: center;
 }
 #draftpage {
-
+  background-color: rgba(0, 47, 201, 0.822); 
+  padding: 15px 40px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 5px;
+  cursor: pointer;
 }
+  
+
+
+/* .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+} */
