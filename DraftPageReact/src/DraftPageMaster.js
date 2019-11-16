@@ -90,9 +90,10 @@ class DraftPageMaster extends React.Component {
         curTeam:1, // Allows Players to select which team drafts first
         draftType:"normal", // Snake or Normal
         snakeDraftSide:1, // Snake going forward round (1234) or backwards round (4321)
-        pickNum:1 // CUrrent Pick #
-
+        pickNum:1, // CUrrent Pick #
+        dev:false
         }
+    
     // Any function used in callback must be bound here or React will not work with them
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -107,17 +108,17 @@ class DraftPageMaster extends React.Component {
      * 11/2 - file created - goethel
      */
     componentDidMount() {
-        debugger;
-        var myData = Object.keys(data).map(key => {
-            if(!(data[key].CLUB == "Icons")) {
-                return data[key];
-            }
-            else {
-                delete data[key];
-            }
-        })
+
+        // var myData = Object.keys(data).map(key => {
+        //     if(!(data[key].CLUB == "Icons")) {
+        //         return data[key];
+        //     }
+        //     else {
+        //         delete data[key];
+        //     }
+        // })
         var that = this;
-        if(false) {
+        if(this.state.dev == true) {
         var mostViewedPosts = firebase.database().ref('Players').orderByChild('RATING').limitToLast(numPlayers).once("value").then(function(snapshot){
             snapshot.forEach(function (childSnapshot) {
                 var childData = childSnapshot.val();
@@ -126,7 +127,12 @@ class DraftPageMaster extends React.Component {
             });
         });   
         } 
-        this.setState({rows:myData})
+        if(localStorage.getItem("index_numplayers") != null) {
+            this.setState({rows:data,NumPlayersTeam:localStorage.getItem("index_numplayers"),numTeams:localStorage.getItem("index_numteams")});
+        }
+       else {
+           this.setState({rows:data});
+       }
      
     }
     /** This handles the initial opening of the DialogBox after the user double clicks on a player in the Data Grid
@@ -186,9 +192,7 @@ class DraftPageMaster extends React.Component {
     handleConfirmDraft() {
         this.setState({DialogState:false,pickNum:(this.state.pickNum+1),draftedPlayer:this.state.curPlayerSelected});
         this.addPlayerToTeam();
-       if(this.state.draftedPlayer != "") {
-        this.onRemoveSelected();
-       }
+        
         
         if(this.isDraftDone() == true) {
             this.DraftFinished();
@@ -225,7 +229,11 @@ class DraftPageMaster extends React.Component {
             }
             // Code for switching to next pick
             
-        }
+            }   
+            if(this.state.curPlayerSelected != "") {
+                this.onRemoveSelected();
+               }
+            
     }
     /** This function will check if Draft is Done or not, treat as js function
      * 
@@ -243,7 +251,7 @@ class DraftPageMaster extends React.Component {
      */
     DraftFinished() {
         // Place finished teams here.
-        window.href("../../resultpage.html");
+        window.location.href="../../resultpage.html";
     }
     render() {
         return(

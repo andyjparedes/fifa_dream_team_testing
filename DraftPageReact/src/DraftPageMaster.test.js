@@ -60,7 +60,7 @@ it('renders without crashing', () => {
 
     ReactDOM.unmountComponentAtNode(div);
   });
-  it('Drafting a Player,on the Last team, for normal draft successfullys gets the next team', () => {
+  it('Drafting a Player,on the Last team, for normal draft successfully gets the next team', () => {
     const div = document.createElement('div');
     const wrapper = shallow(<DraftPageMaster/>);
     wrapper.setState({draftType:"normal"})
@@ -77,7 +77,7 @@ it('renders without crashing', () => {
     expect(wrapper.state().curTeam).toBe(1);
     ReactDOM.unmountComponentAtNode(div);
   });
-  it('Drafting a Player,on the Last team, for normal draft successfullys gets the next team', () => {
+  it('Drafting a Player,on the Last team, for normal draft successfullysgets the next team', () => {
     const div = document.createElement('div');
     const wrapper = shallow(<DraftPageMaster/>);
     wrapper.setState({draftType:"snake"})
@@ -96,21 +96,48 @@ it('renders without crashing', () => {
     expect(wrapper.state().curTeam).toBe(5);
     ReactDOM.unmountComponentAtNode(div);
   });
-  it('Drafting a Player,on the Last team, for normal draft successfullys gets the next team', () => {
+  it('Drafting a Player,on the Last team, for normal draft, Finishes the draft', () => {
     const div = document.createElement('div');
     const wrapper = shallow(<DraftPageMaster/>);
-    wrapper.setState({pickNum:48})
+    wrapper.setState({pickNum:72})
     const instance = wrapper.instance();
     instance.handleConfirmDraft();
     ReactDOM.unmountComponentAtNode(div);
 
   });
-//   it('Drafting a Player,on the Last team, for normal draft successfullys gets the next team', () => {
-//     const div = document.createElement('div');
-//     const wrapper = mount(<DialogBox/>);
+  it('Drafting a Player,on the Last team, for normal draft, Finishes the draft', () => {
+    const div = document.createElement('div');
+    const expected = [{
+		NAME: "Lionel Messi",
+		CLUB: "FC Barcelona",
+		LEAGUE: "Spain Primera Division",
+		POSITION: "CF",
+		TIER: "Gold",
+		RATING: "94",
+		PACE: "88",
+		SHOOTING: "91",
+		PASSING: "88",
+		DRIBBLING: "96",
+		DEFENDING: "32",
+		PHYSICAL: "61",
+		LOADDATE: "2018-09-19 12:10:05"
+	}]
+    const wrapper = shallow(<DraftPageMaster/>);
+    wrapper.setState({dev:true});
+    const instance = wrapper.instance();
+    instance.componentDidMount();
+    expect(wrapper.state().rows).toEqual(expect.arrayContaining(expected));
+    ReactDOM.unmountComponentAtNode(div);
+    ReactDOM.unmountComponentAtNode(div);
 
-//     ReactDOM.unmountComponentAtNode(div);
-
-//   });
+  });
+  it('Drafting a Player,on the Last team, for normal draft successfullys gets the next team', () => {
+    const div = document.createElement('div');
+    const wrapper = mount(<DialogBox/>);
+    const instance = wrapper.instance();
+    instance.handleClose();
+    instance.handleConfirmDraft();
+    ReactDOM.unmountComponentAtNode(div);
+  });
 
   
