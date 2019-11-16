@@ -132,7 +132,7 @@ class DraftPageMaster extends React.Component {
             this.setState({rows:data,NumPlayersTeam:localStorage.getItem("index_numplayers"),numTeams:localStorage.getItem("index_numteams")});
         }
        else {
-           this.setState({rows:data});
+           this.setState({rows:data,numTeams:3,NumPlayersTeam:2});
        }
      
     }
@@ -193,7 +193,7 @@ class DraftPageMaster extends React.Component {
     handleConfirmDraft() {
         this.setState({DialogState:false,pickNum:(this.state.pickNum+1),draftedPlayer:this.state.curPlayerSelected});
         this.addPlayerToTeam();
-        
+        debugger;
         
         if(this.isDraftDone() == true) {
             this.DraftFinished();
