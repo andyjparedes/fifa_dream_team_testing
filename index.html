@@ -12,74 +12,88 @@
         <div id="title">FIFA Dream Team</div>
 
         <!--container that holds the content of initial page-->
+        <div id="description">Welcome to FIFA Dream Team! Here you can set 
+            the initial rules for your draft. 
+            <br/>Once you have  set the initial settings, you can proceed to the Drafting Page. 
+            <br/>If you need help or guidance, take a look at the example image at the bottom of the page.
+            <br/>Happy drafting!
+        </div>
         <div id="content">
-            <div id="description">Welcome to FIFA Dream Team! Here you can set 
-                the initial rules for your draft. Once you have  set the initial 
-                settings, you can proceed to the Drafting Page. If you need help 
-                or guidance, take a look at the example image at the bottom of 
-                the page.
-                <br/>Happy drafting! 
+            <div id="left">
+                <img src="https://www.searchpng.com/wp-content/uploads/2019/01/Cristiano-Ronaldo-PNG-715x982.png" id="ronaldo" width="300px" height="700px">
             </div>
-            <!--User input for number of teams participating in draft-->
-            <div id="numteams">
-                <label>Choose number of teams</label>
-                <select id="drop1">
-                    <option value="null"></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                </select>
+            <div id="right">    
+                <img src="https://www.trzcacak.rs/file/max/69/694538_messi-png-2017.png" id="messi" width="300px" height="700px">
             </div>
-            <!--User input for team names for each participating team-->
-            <div id="teamnames">
-                <!--JavaScript handles this in index.js-->
-            </div>
-            <!--User input for number of players per team-->
-            <div id="numplayers">
-                <label>Choose number of players per team</label>
-                <select id="drop2">
-                    <option value="null"></option>
-                    <option value="18">18</option>
-                    <option value="20">20</option>
-                    <option value="22">22</option>
-                    <option value="24">24</option>
-                    <option value="26">26</option>
-                </select>
-            </div>
-            <!--User input for how teams will be created-->
-            <div id="createteams">
-                <label>Create teams...</label>
-                <select id="drop3">
-                    <option value="drop3manually">Manually</option>
-                    <!--Randomly option will be implemented in later iteration-->
-                </select>
-            </div>
-            <!--User input for the round transition of the draft-->
-            <div id="roundtrans">
-                <label>Draft rounds transition</label>
-                <select id="drop4">
-                    <option value="repeating">Repeating</option>
-                    <option value="snake">Snake</option>
-                </select>
-            </div>
-            <!--User input for the version of FIFA to be used in the Draft-->
-            <div id="version">
-                <label>FIFA version</label>
-                <select id="drop5">
-                    <option value="fifa19">FIFA 19</option>
-                    <!--More versions will be added in a later iteration-->
-                </select>
+            <div id="center">
+                <!--User input for number of teams participating in draft-->
+                <div id="numteams">
+                    </label>Choose number of teams</label>
+                    <br/>
+                    <select id="drop1">
+                        <option value="null"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <!--User input for team names for each participating team-->
+                <div id="teamnames">
+                    <!--JavaScript handles this in index.js-->
+                </div>
+                <!--User input for number of players per team-->
+                <div id="numplayers">
+                    <label>Choose number of players per team</label>
+                    <br/>
+                    <select id="drop2">
+                        <option value="null"></option>
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                        <option value="22">22</option>
+                        <option value="24">24</option>
+                        <option value="26">26</option>
+                    </select>
+                </div>
+                <!--User input for how teams will be created-->
+                <div id="createteams">
+                    <label>Create teams...</label>
+                    <br/>
+                    <select id="drop3">
+                        <option value="drop3manually">Manually</option>
+                        <!--Randomly option will be implemented in later iteration-->
+                    </select>
+                </div>
+                <!--User input for the round transition of the draft-->
+                <div id="roundtrans">
+                    <label>Draft rounds transition</label>
+                    <br/>
+                    <select id="drop4">
+                        <option value="repeating">Repeating</option>
+                        <option value="snake">Snake</option>
+                    </select>
+                </div>
+                <!--User input for the version of FIFA to be used in the Draft-->
+                <div id="version">
+                    <label>FIFA version</label>
+                    <br/>
+                    <select id="drop5">
+                        <option value="fifa19">FIFA 19</option>
+                        <!--More versions will be added in a later iteration-->
+                    </select>
+                </div>
             </div>
         </div>
         <!--A video example of the recommended settings for a draft-->
         <div id="example">
-            <div id="example_title">Example Video</div>
-            <video width="700" height="350" controls>
+            <label>Example Video</label>
+        </div>
+        <div id="video">
+            <video width="500" height="350" controls>
                 <source src="example.mp4" type="video/mp4">
-                Your browser does not support this video formatting
+                Your browser does not support this video
             </video>
         </div>
         <!--Button which takes you to the Drafting Page-->
