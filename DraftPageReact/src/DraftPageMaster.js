@@ -92,7 +92,8 @@ class DraftPageMaster extends React.Component {
         draftType: localStorage.getItem("index_roundtrans"), // Snake or Normal draft
         snakeDraftSide:1, // Snake going forward round (1234) or backwards round (4321)
         pickNum:1, // CUrrent Pick #
-        dev:false
+        dev:false,
+        topBarList: [] // List of players on the top bar
         }
     
     // Any function used in callback must be bound here or React will not work with them
@@ -153,6 +154,29 @@ class DraftPageMaster extends React.Component {
     handleClose() {
         this.setState({DialogState:false})
     }
+
+    /** This function adds the most recent drafted player onm the top bar.
+     * 
+     * @author Shivi
+     * 
+     * 11/14 - Function Created
+     */
+    createDraftedList(player){
+        var cardInfo = {};
+        cardInfo.playerNum = 0;
+        cardInfo.playerDrafted = player;
+        let list = this.state.topBarList;
+        if(list.length === this.state.numTeams){
+            list.shift();
+            list.push(player);
+        }
+        else{
+            list.push(player);
+        }
+
+    }
+
+
     /** This function adds the drafted player to the correct team
      * @author goethel
      * 
@@ -277,7 +301,7 @@ class DraftPageMaster extends React.Component {
                 <div className="draft-Body">
                 
                     <DialogBox props={{DialogState:this.state.DialogState,handleClose:this.handleClose,handleConfirmDraft:this.handleConfirmDraft,player:this.state.curPlayerSelected}}></DialogBox>
-                    <CurrentDraft/>
+                    <CurrentDraft playerList={this.state.topBarList}/>
                     <PlayerDatabase props={{rows:this.state.rows,handleClick:this.handleClick}}></PlayerDatabase>
                     <div>
                     <Formation/>
