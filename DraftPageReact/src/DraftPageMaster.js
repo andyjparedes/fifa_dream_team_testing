@@ -82,16 +82,17 @@ class DraftPageMaster extends React.Component {
                 t5:[],
                 t6:[],
                 
-        NumPlayersTeam:12, // Number of players per team (48 is a bit much!)
-        numTeams:6, // number of teams
+        NumPlayersTeam: localStorage.getItem("index_numplayers"), // Number of players per team
+        numTeams: localStorage.getItem("index_numteams"), // Number of teams
         DialogState:false,
         curPlayerSelected:"", // The player that the user double clicked on
         draftedPlayer:"", // This variable will update with the last drafted player
         curTeam:1, // Allows Players to select which team drafts first
-        draftType:"normal", // Snake or Normal
+        curTeamName: localStorage.getItem("index_team" + 1), // Team name of current team
+        draftType: localStorage.getItem("index_roundtrans"), // Snake or Normal draft
         snakeDraftSide:1, // Snake going forward round (1234) or backwards round (4321)
         pickNum:1, // CUrrent Pick #
-        topBarList: [] // List of players on the top bar
+        dev:false
         }
     
     // Any function used in callback must be bound here or React will not work with them
@@ -135,29 +136,6 @@ class DraftPageMaster extends React.Component {
        }
      
     }
-
-    /** This function adds the most recent drafted player onm the top bar.
-     * 
-     * @author Shivi
-     * 
-     * 11/14 - Function Created
-     */
-    createDraftedList(player){
-        var cardInfo = {};
-        cardInfo.playerNum = 0;
-        cardInfo.playerDrafted = player;
-        let list = this.state.topBarList;
-        if(list.length === this.state.numTeams){
-            list.shift();
-            list.push(player);
-        }
-        else{
-            list.push(player);
-        }
-        this.setState({topBarList:list})
-
-    }
-
     /** This handles the initial opening of the DialogBox after the user double clicks on a player in the Data Grid
      * 
      */
@@ -221,12 +199,14 @@ class DraftPageMaster extends React.Component {
             this.DraftFinished();
         }
         else {
-            if(this.state.draftType == "normal") {
+            if(this.state.draftType == "repeating") {
                 if(this.state.curTeam==this.state.numTeams) {
                     this.setState({curTeam:1});
+                    this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                 }
                 else {
-                    this.setState({curTeam:(this.state.curTeam+1)})
+                    this.setState({curTeam:(this.state.curTeam+1)});
+                    this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                 }
             }
             // Code for evaluating next pick in snake draft
@@ -237,7 +217,8 @@ class DraftPageMaster extends React.Component {
                             this.setState({snakeDraftSide:0})
                         }
                         else {
-                        this.setState({curTeam:(this.state.curTeam+1)})
+                        this.setState({curTeam:(this.state.curTeam+1)});
+                        this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                         }
                     }
                     else {
@@ -245,7 +226,8 @@ class DraftPageMaster extends React.Component {
                             this.setState({snakeDraftSide:1})
                         }
                         else {
-                        this.setState({curTeam:(this.state.curTeam-1)})
+                        this.setState({curTeam:(this.state.curTeam-1)});
+                        this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                         }
                     }
                 
@@ -274,21 +256,28 @@ class DraftPageMaster extends React.Component {
      */
     DraftFinished() {
         // Place finished teams here.
-        window.location.href="../../resultpage.html";
+        localStorage.setItem("draft_t1", JSON.stringify(this.state.t1));
+        localStorage.setItem("draft_t2", JSON.stringify(this.state.t2));
+        localStorage.setItem("draft_t3", JSON.stringify(this.state.t3));
+        localStorage.setItem("draft_t4", JSON.stringify(this.state.t4));
+        localStorage.setItem("draft_t5", JSON.stringify(this.state.t5));
+        localStorage.setItem("draft_t6", JSON.stringify(this.state.t6));
+
+        window.location.href="../../tradingpage.html";
     }
     render() {
         return(
             <div className="App">
                 <header className="App-header">
                     <h1>
-                    Team {this.state.curTeam} currently drafting
+                    {this.state.curTeamName} currently drafting
                     </h1>
                     <h2>Pick Number {this.state.pickNum}</h2>
                 </header>
                 <div className="draft-Body">
                 
                     <DialogBox props={{DialogState:this.state.DialogState,handleClose:this.handleClose,handleConfirmDraft:this.handleConfirmDraft,player:this.state.curPlayerSelected}}></DialogBox>
-                    <CurrentDraft playerList={this.state.topBarList}/>
+                    <CurrentDraft/>
                     <PlayerDatabase props={{rows:this.state.rows,handleClick:this.handleClick}}></PlayerDatabase>
                     <div>
                     <Formation/>
