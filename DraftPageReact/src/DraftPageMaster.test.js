@@ -63,7 +63,7 @@ it('renders without crashing', () => {
   it('Drafting a Player,on the Last team, for normal draft successfully gets the next team', () => {
     const div = document.createElement('div');
     const wrapper = shallow(<DraftPageMaster/>);
-    wrapper.setState({draftType:"normal"})
+    wrapper.setState({draftType:"repeating"})
     const instance = wrapper.instance();
     expect(wrapper.state().curTeam).toBe(1);
     instance.handleConfirmDraft();
@@ -77,7 +77,7 @@ it('renders without crashing', () => {
     expect(wrapper.state().curTeam).toBe(1);
     ReactDOM.unmountComponentAtNode(div);
   });
-  it('Drafting a Player,on the Last team, for normal draft successfullysgets the next team', () => {
+  it('Drafting a Player,on the Last team, for snake draft successfully gets the next team', () => {
     const div = document.createElement('div');
     const wrapper = shallow(<DraftPageMaster/>);
     wrapper.setState({draftType:"snake"})
@@ -131,9 +131,9 @@ it('renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div);
 
   });
-  it('Drafting a Player,on the Last team, for normal draft successfullys gets the next team', () => {
+  it('Drafting a Player,on the Last team, for normal draft successfully gets the next team', () => {
     const div = document.createElement('div');
-    const wrapper = mount(<DialogBox/>);
+    const wrapper = shallow(<DialogBox/>);
     const instance = wrapper.instance();
     instance.handleClose();
     instance.handleConfirmDraft();

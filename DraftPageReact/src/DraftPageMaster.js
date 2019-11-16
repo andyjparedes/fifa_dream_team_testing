@@ -1,6 +1,6 @@
 import React from 'react';
 import Formation from './Formation';
-import CurrentDraft from './CurrentDraft';
+import {CurrentDraft} from './CurrentDraft';
 import PlayerDatabase from './Components/Database.jsx';
 import PlayerTeam from './Components/PlayerTeam.jsx';
 import Button from '@material-ui/core/Button';
@@ -10,6 +10,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { create } from 'domain';
+
 
 /** This is an arrow function to set up the Dialog/Confirmation popup to draft a player they clicked on
  * @author goethel
@@ -133,7 +135,7 @@ class DraftPageMaster extends React.Component {
             this.setState({rows:data,NumPlayersTeam:localStorage.getItem("index_numplayers"),numTeams:localStorage.getItem("index_numteams")});
         }
        else {
-           this.setState({rows:data,numTeams:3,NumPlayersTeam:2});
+           this.setState({rows:data,numTeams:6,NumPlayersTeam:12,draftType:"repeating"});
        }
      
     }
@@ -184,7 +186,7 @@ class DraftPageMaster extends React.Component {
      */
     addPlayerToTeam() {
         let team = this.state.curTeam;
-
+        this.createDraftedList(this.state.curPlayerSelected);
         if(team ==1) {
             this.setState({t1:(this.state.t1.concat(this.state.curPlayerSelected))});
         }
@@ -217,8 +219,6 @@ class DraftPageMaster extends React.Component {
     handleConfirmDraft() {
         this.setState({DialogState:false,pickNum:(this.state.pickNum+1),draftedPlayer:this.state.curPlayerSelected});
         this.addPlayerToTeam();
-        debugger;
-        
         if(this.isDraftDone() == true) {
             this.DraftFinished();
         }
@@ -292,6 +292,7 @@ class DraftPageMaster extends React.Component {
     render() {
         return(
             <div className="App">
+                <CurrentDraft playerList={this.state.topBarList}/>
                 <header className="App-header">
                     <h1>
                     {this.state.curTeamName} currently drafting
@@ -301,7 +302,8 @@ class DraftPageMaster extends React.Component {
                 <div className="draft-Body">
                 
                     <DialogBox props={{DialogState:this.state.DialogState,handleClose:this.handleClose,handleConfirmDraft:this.handleConfirmDraft,player:this.state.curPlayerSelected}}></DialogBox>
-                    <CurrentDraft playerList={this.state.topBarList}/>
+                    
+                    
                     <PlayerDatabase props={{rows:this.state.rows,handleClick:this.handleClick}}></PlayerDatabase>
                     <div>
                     <Formation/>

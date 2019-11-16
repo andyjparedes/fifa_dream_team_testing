@@ -1,7 +1,8 @@
-import React from 'react';
-//import { Card } from 'reactstrap';
-
-class CurrentDraft extends React.Component {
+import React,{Component} from 'react';
+//import {Card} from 'reactstrap';
+import Card from '@material-ui/core/Card'
+import { CardContent } from '@material-ui/core';
+export class CurrentDraft extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,43 +11,29 @@ class CurrentDraft extends React.Component {
 
         };
     }
+    /**
+     * https://material-ui.com/components/cards/
+     */
     render() {
-        return(
-            <div>
-                {this.getPlayers(this.props.playerList)}
-                {this.getCurrentPlayer()}
-            </div>
-        )
+        return this.props.playerList.map((player) => {
+            return (
+                <Card>
+                    <CardContent>{player.NAME}</CardContent>
+                </Card>
+            );
+        });
     }
-
-    getPlayers(currentList){
-        var tempList = [];
-        console.log(currentList);
-        // for(const player of []){
-        //     tempList.push(
-        //         <Card>
-        //             <Card.Body>
-        //                 <Card.Title>Player {player.playerNum}</Card.Title>
-        //                 <Card.Subtitle>{player.playerDrafted}</Card.Subtitle>
-        //             </Card.Body>
-        //         </Card>
-        //     )
-        // }
-        return tempList;
-    }
-
     getCurrentPlayer(){
         var tempList2 = [];
-        // tempList2.push(
-        //     <Card>
-        //         <Card.Body>
-        //             <Card.Title>Player {this.state.currentPlayerNo}</Card.Title>
-        //             <Card.Subtitle>Drafting...</Card.Subtitle>
-        //         </Card.Body>
-        //     </Card>
-        // )
+        tempList2.push(
+            <Card>
+                <Card.Body>
+                    <Card.Title>Player {this.state.currentPlayerNo}</Card.Title>
+                    <Card.Subtitle>Drafting...</Card.Subtitle>
+                </Card.Body>
+            </Card>
+        )
         return tempList2;
     }
 }
 
-export default CurrentDraft;
