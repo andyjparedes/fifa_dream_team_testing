@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'reactstrap';
+//import { Card } from 'reactstrap';
 
 class CurrentDraft extends React.Component {
     constructor(props) {
