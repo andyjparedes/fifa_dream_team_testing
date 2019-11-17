@@ -11,7 +11,7 @@ function inputTeamNames() {
         let teamnames = document.getElementById("teamnames");
 
         //create a leading text to describe which team it is
-        // let text = document.createTextNode("Team " + (i+1));
+        let text = document.createTextNode("Team " + (i+1));
 
         //create the actual input boxes
         let x = document.createElement("INPUT");
@@ -20,7 +20,7 @@ function inputTeamNames() {
         x.setAttribute("padding", "12px 20px");
 
         //add the elements to the page
-        // teamnames.appendChild(text);
+        teamnames.appendChild(text);
         teamnames.appendChild(x);
     }
 }
