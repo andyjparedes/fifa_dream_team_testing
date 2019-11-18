@@ -67,6 +67,7 @@ const data=require('./Player.json');
  * @author shivi 
  * 
  * CHANGELOG
+ * 11/10 Various Bugfixes, and improvements to the state between pages - goethel
  * 11/01 Updated with documentation and a button linking to results page for testing - goethel
  * 10/30 Component Created - shivi
  */
@@ -90,7 +91,7 @@ class DraftPageMaster extends React.Component {
         curPlayerSelected:"", // The player that the user double clicked on
         draftedPlayer:"", // This variable will update with the last drafted player
         curTeam:1, // Allows Players to select which team drafts first
-        curTeamName: localStorage.getItem("index_team" + 1), // Team name of current team
+        teamNames: [], // Team name of current team
         draftType: localStorage.getItem("index_roundtrans"), // Snake or Normal draft
         snakeDraftSide:1, // Snake going forward round (1234) or backwards round (4321)
         pickNum:1, // CUrrent Pick #
@@ -108,6 +109,7 @@ class DraftPageMaster extends React.Component {
      * @author goethel 
      * 
      * CHANGELOG
+     * 11/10 - Added fallback options for testing without localstorage - goethel
      * 11/5 - added option for local DB usage - goethel
      * 11/2 - file created - goethel
      */
@@ -122,6 +124,7 @@ class DraftPageMaster extends React.Component {
         //     }
         // })
         var that = this;
+        
         if(this.state.dev == true) {
         var mostViewedPosts = firebase.database().ref('Players').orderByChild('RATING').limitToLast(numPlayers).once("value").then(function(snapshot){
             snapshot.forEach(function (childSnapshot) {
@@ -133,11 +136,31 @@ class DraftPageMaster extends React.Component {
         } 
         if(localStorage.getItem("index_numplayers") != null) {
             this.setState({rows:data,NumPlayersTeam:localStorage.getItem("index_numplayers"),numTeams:localStorage.getItem("index_numteams")});
+            this.genTeamNames(false);
         }
        else {
            this.setState({rows:data,numTeams:6,NumPlayersTeam:12,draftType:"repeating"});
+           this.genTeamNames(true);
        }
      
+    }
+    /**
+     * 
+     */
+    genTeamNames(option) {
+        let fallback = [];
+        debugger;
+        if(option) {
+        for(let i = 1; i <= 6;++i) {
+            fallback[i] = "Team "+i;
+        }
+        }
+        else {
+            for(let i = 1; i <= 6;++i) {
+                fallback[i] = localStorage.getItem("index_team"+i);
+            }
+        }
+        this.setState({teamNames:fallback});
     }
     /** This handles the initial opening of the DialogBox after the user double clicks on a player in the Data Grid
      * 
@@ -226,11 +249,9 @@ class DraftPageMaster extends React.Component {
             if(this.state.draftType == "repeating") {
                 if(this.state.curTeam==this.state.numTeams) {
                     this.setState({curTeam:1});
-                    this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                 }
                 else {
                     this.setState({curTeam:(this.state.curTeam+1)});
-                    this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                 }
             }
             // Code for evaluating next pick in snake draft
@@ -242,7 +263,6 @@ class DraftPageMaster extends React.Component {
                         }
                         else {
                         this.setState({curTeam:(this.state.curTeam+1)});
-                        this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                         }
                     }
                     else {
@@ -251,7 +271,6 @@ class DraftPageMaster extends React.Component {
                         }
                         else {
                         this.setState({curTeam:(this.state.curTeam-1)});
-                        this.setState({curTeamName: localStorage.getItem("index_team" + this.state.curTeam)});
                         }
                     }
                 
@@ -295,7 +314,7 @@ class DraftPageMaster extends React.Component {
                 <CurrentDraft playerList={this.state.topBarList}/>
                 <header className="App-header">
                     <h1>
-                    {this.state.curTeamName} currently drafting
+                    {this.state.teamNames[this.state.curTeam]} currently drafting
                     </h1>
                     <h2>Pick Number {this.state.pickNum}</h2>
                 </header>

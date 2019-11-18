@@ -2,6 +2,14 @@ import React,{Component} from 'react';
 //import {Card} from 'reactstrap';
 import Card from '@material-ui/core/Card'
 import { CardContent } from '@material-ui/core';
+/**
+ * @author Shivi
+ * 
+ * changes
+ * 
+ * 11/15 - Made edits since reactstrap card broke goethel
+ * 11/10 - File created Shivi
+ */
 export class CurrentDraft extends Component {
     constructor(props) {
         super(props);

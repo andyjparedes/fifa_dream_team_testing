@@ -48,5 +48,5 @@ function goToDraftPage() {
 window.onload = function init() {
     this.document.getElementById("draftpage").addEventListener("click", goToDraftPage);
     this.document.getElementById("drop1").addEventListener("change", inputTeamNames);
-    this.localStorage.clear(); // clear the local storage for testing or a new draft
+   // this.localStorage.clear(); // clear the local storage for testing or a new draft
 }
