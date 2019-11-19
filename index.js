@@ -18,6 +18,7 @@ function inputTeamNames() {
         x.setAttribute("placeholder", "Team Name " + (i+1));
         x.setAttribute("type", "text");
         x.setAttribute("padding", "12px 20px");
+        x.setAttribute("id", "team" + (i+1));
 
         //add the elements to the page
         teamnames.appendChild(text);
@@ -43,7 +44,7 @@ function goToDraftPage() {
 }
 
 /* 
- * initialize the listeners for the page
+ * initialize the listeners for the page 
  */
 window.onload = function init() {
     this.document.getElementById("draftpage").addEventListener("click", goToDraftPage);
