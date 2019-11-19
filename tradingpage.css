@@ -11,16 +11,46 @@ body, html {
 
 }
 
-#team1,#team2,#team3,#team4,#team5,#team6 {
-
+#team1,#team2,#team3,#team4,#team5,#team6 { 
+  text-align: center;
 }
+#team1_block1, #team2_block1, #team3_block1, 
+#team4_block1, #team5_block1, #team6_block1 {
+  width: 152px;
+  display: inline-block;
+}
+#team1_block2, #team2_block2, #team3_block2, 
+#team4_block2, #team5_block2, #team6_block2 {
+  width: 152px;
+  display: inline-block;
+  
+}
+#team1_block3, #team2_block3, #team3_block3, 
+#team4_block3, #team5_block3, #team6_block3 {
+  width: 152px;
+  display: inline-block;
+}
+#team1_block4, #team2_block4, #team3_block4, 
+#team4_block4, #team5_block4, #team6_block4 {
+  width: 152px;
+  display: inline-block;
+}
+
 #team1_player1,#team1_player2,#team1_player3,#team1_player4,#team1_player5,
 #team1_player6,#team1_player7,#team1_player8,#team1_player9,#team1_player10,
 #team1_player11,#team1_player12,#team1_player13,#team1_player14,#team1_player15,
 #team1_player16,#team1_player17,#team1_player18,#team1_player19,#team1_player20,
 #team1_player21,#team1_player22,#team1_player23,#team1_player24,#team1_player25,
 #team1_player26 {
-
+  background-color: red;
+  border: none;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  width: 150px;
 }
 #team2_player1,#team2_player2,#team2_player3,#team2_player4,#team2_player5,
 #team2_player6,#team2_player7,#team2_player8,#team2_player9,#team2_player10,
@@ -28,7 +58,15 @@ body, html {
 #team2_player16,#team2_player17,#team2_player18,#team2_player19,#team2_player20,
 #team2_player21,#team2_player22,#team2_player23,#team2_player24,#team2_player25,
 #team2_player26 {
-    
+  background-color: blue;
+  border: none;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  width: 150px;
 }
 #team3_player1,#team3_player2,#team3_player3,#team3_player4,#team3_player5,
 #team3_player6,#team3_player7,#team3_player8,#team3_player9,#team3_player10,
@@ -36,7 +74,15 @@ body, html {
 #team3_player16,#team3_player17,#team3_player18,#team3_player19,#team3_player20,
 #team3_player21,#team3_player22,#team3_player23,#team3_player24,#team3_player25,
 #team3_player26 {
-    
+  background-color: green;
+  border: none;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  width: 150px;
 }
 #team4_player1,#team4_player2,#team4_player3,#team4_player4,#team4_player5,
 #team4_player6,#team4_player7,#team4_player8,#team4_player9,#team4_player10,
@@ -44,7 +90,15 @@ body, html {
 #team4_player16,#team4_player17,#team4_player18,#team4_player19,#team4_player20,
 #team4_player21,#team4_player22,#team4_player23,#team4_player24,#team4_player25,
 #team4_player26 {
-    
+  background-color: yellow;
+  border: none;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  width: 150px;
 }
 #team5_player1,#team5_player2,#team5_player3,#team5_player4,#team5_player5,
 #team5_player6,#team5_player7,#team5_player8,#team5_player9,#team5_player10,
@@ -52,7 +106,15 @@ body, html {
 #team5_player16,#team5_player17,#team5_player18,#team5_player19,#team5_player20,
 #team5_player21,#team5_player22,#team5_player23,#team5_player24,#team5_player25,
 #team5_player26 {
-    
+  background-color: purple;
+  border: none;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  width: 150px;
 }
 #team6_player1,#team6_player2,#team6_player3,#team6_player4,#team6_player5,
 #team6_player6,#team6_player7,#team6_player8,#team6_player9,#team6_player10,
@@ -60,7 +122,15 @@ body, html {
 #team6_player16,#team6_player17,#team6_player18,#team6_player19,#team6_player20,
 #team6_player21,#team6_player22,#team6_player23,#team6_player24,#team6_player25,
 #team6_player26 {
-    
+  background-color: orange;
+  border: none;
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  width: 150px;
 }
 #next {
 
