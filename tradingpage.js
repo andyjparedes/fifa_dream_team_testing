@@ -26,7 +26,7 @@ function loadTeam(team, num) {
     }
 
     // load all of the players on the team and make them be buttons
-    for (let i = 0; i < localStorage.getItem("index_numplayers") - 1; i++) { //EDIT
+    for (let i = 0; i < localStorage.getItem("index_numplayers"); i++) { //EDIT
         let button = document.createElement("BUTTON");
         button.setAttribute("id", "team" + num + "_player" + (i + 1));
         button.setAttribute("value", team[i].NAME);

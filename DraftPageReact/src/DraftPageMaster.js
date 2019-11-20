@@ -114,15 +114,6 @@ class DraftPageMaster extends React.Component {
      * 11/2 - file created - goethel
      */
     componentDidMount() {
-
-        // var myData = Object.keys(data).map(key => {
-        //     if(!(data[key].CLUB == "Icons")) {
-        //         return data[key];
-        //     }
-        //     else {
-        //         delete data[key];
-        //     }
-        // })
         var that = this;
         
         if(this.state.dev == true) {
@@ -139,7 +130,7 @@ class DraftPageMaster extends React.Component {
             this.genTeamNames(false);
         }
        else {
-           this.setState({rows:data,numTeams:6,NumPlayersTeam:12,draftType:"repeating"});
+           this.setState({rows:data,numTeams:2,NumPlayersTeam:2,draftType:"repeating"});
            this.genTeamNames(true);
        }
      
@@ -149,7 +140,6 @@ class DraftPageMaster extends React.Component {
      */
     genTeamNames(option) {
         let fallback = [];
-        debugger;
         if(option) {
         for(let i = 1; i <= 6;++i) {
             fallback[i] = "Team "+i;
@@ -211,24 +201,25 @@ class DraftPageMaster extends React.Component {
         let team = this.state.curTeam;
         this.createDraftedList(this.state.curPlayerSelected);
         if(team ==1) {
-            this.setState({t1:(this.state.t1.concat(this.state.curPlayerSelected))});
+            this.setState({t1:(this.state.t1.concat(this.state.curPlayerSelected))},this.isDraftDone);
         }
         else if(team ==2) {
-            this.setState({t2:(this.state.t2.concat(this.state.curPlayerSelected))});
+            this.setState({t2:(this.state.t2.concat(this.state.curPlayerSelected))},this.isDraftDone);
         }
         else if(team ==3) {
-            this.setState({t3:(this.state.t3.concat(this.state.curPlayerSelected))});
+            this.setState({t3:(this.state.t3.concat(this.state.curPlayerSelected))},this.isDraftDone);
         }
         else if(team ==4) {
-            this.setState({t4:(this.state.t4.concat(this.state.curPlayerSelected))});
+            this.setState({t4:(this.state.t4.concat(this.state.curPlayerSelected))},this.isDraftDone);
         }
         else if(team ==5) {
-            this.setState({t5:(this.state.t5.concat(this.state.curPlayerSelected))});
+            this.setState({t5:(this.state.t5.concat(this.state.curPlayerSelected))},this.isDraftDone);
         }
         else if(team ==6) {
-            this.setState({t6:(this.state.t6.concat(this.state.curPlayerSelected))});
+            this.setState({t6:(this.state.t6.concat(this.state.curPlayerSelected))},this.isDraftDone);
         }
     }
+    
     /** This function removes a drafted player from the data grid
      * 
      */
@@ -240,12 +231,9 @@ class DraftPageMaster extends React.Component {
      * 
      */
     handleConfirmDraft() {
-        this.setState({DialogState:false,pickNum:(this.state.pickNum+1),draftedPlayer:this.state.curPlayerSelected});
+        this.setState({pickNum:(this.state.pickNum+1)});
+        this.setState({DialogState:false,draftedPlayer:this.state.curPlayerSelected});
         this.addPlayerToTeam();
-        if(this.isDraftDone() == true) {
-            this.DraftFinished();
-        }
-        else {
             if(this.state.draftType == "repeating") {
                 if(this.state.curTeam==this.state.numTeams) {
                     this.setState({curTeam:1});
@@ -277,7 +265,7 @@ class DraftPageMaster extends React.Component {
             }
             // Code for switching to next pick
             
-            }   
+        
             if(this.state.curPlayerSelected != "") {
                 this.onRemoveSelected();
                }
@@ -287,11 +275,10 @@ class DraftPageMaster extends React.Component {
      * 
      */
     isDraftDone() {
-        if(this.state.pickNum >= this.state.numTeams*this.state.NumPlayersTeam) {
-            return true;
+        if(this.state.pickNum > this.state.numTeams*this.state.NumPlayersTeam) {
+            this.DraftFinished();
         }
         else {
-            return false;
         }
     }
     /** This Function handles the eventual switchover to Results Page, and stores the Team data into the local browser storage to be used by the Results Page
@@ -299,15 +286,19 @@ class DraftPageMaster extends React.Component {
      */
     DraftFinished() {
         // Place finished teams here.
+        this.forceUpdate();
         localStorage.setItem("draft_t1", JSON.stringify(this.state.t1));
         localStorage.setItem("draft_t2", JSON.stringify(this.state.t2));
         localStorage.setItem("draft_t3", JSON.stringify(this.state.t3));
         localStorage.setItem("draft_t4", JSON.stringify(this.state.t4));
         localStorage.setItem("draft_t5", JSON.stringify(this.state.t5));
         localStorage.setItem("draft_t6", JSON.stringify(this.state.t6));
-
         window.location.href="../../tradingpage.html";
     }
+    /** Render function for react
+     * 
+     * @author goethel
+     */
     render() {
         return(
             <div className="App">
