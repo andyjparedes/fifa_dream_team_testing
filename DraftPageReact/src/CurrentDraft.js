@@ -18,6 +18,7 @@ export class CurrentDraft extends Component {
             currentPlayerName:""
 
         };
+        debugger;
     }
     /**
      * https://material-ui.com/components/cards/
@@ -25,8 +26,14 @@ export class CurrentDraft extends Component {
     render() {
         return this.props.playerList.map((player) => {
             return (
-                <Card>
-                    <CardContent>{player.NAME}</CardContent>
+                <Card style={{color:"#fff",backgroundColor:"#1F1B24"}}>
+                     <CardContent>
+                        {player.playerDrafted.NAME}
+                        <ul></ul>
+                        {player.teamNames[player.teamNumber]}
+                        <ul></ul>
+                        Pick {player.playerNum}
+                    </CardContent>
                 </Card>
             );
         });
@@ -35,7 +42,7 @@ export class CurrentDraft extends Component {
         var tempList2 = [];
         tempList2.push(
             <Card>
-                <Card.Body>
+                <Card.Body >
                     <Card.Title>Player {this.state.currentPlayerNo}</Card.Title>
                     <Card.Subtitle>Drafting...</Card.Subtitle>
                 </Card.Body>

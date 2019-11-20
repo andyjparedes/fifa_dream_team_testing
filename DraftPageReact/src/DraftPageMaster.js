@@ -178,15 +178,17 @@ class DraftPageMaster extends React.Component {
      */
     createDraftedList(player){
         var cardInfo = {};
-        cardInfo.playerNum = 0;
+        cardInfo.playerNum = this.state.pickNum;
+        cardInfo.teamNames = this.state.teamNames;
+        cardInfo.teamNumber = this.state.curTeam;
         cardInfo.playerDrafted = player;
         let list = this.state.topBarList;
-        if(list.length === this.state.numTeams){
+        if(list.length === 10){
             list.shift();
-            list.push(player);
+            list.push(cardInfo);
         }
         else{
-            list.push(player);
+            list.push(cardInfo);
         }
 
     }
@@ -302,7 +304,9 @@ class DraftPageMaster extends React.Component {
     render() {
         return(
             <div className="App">
+                <div className="Player-Boxes">
                 <CurrentDraft playerList={this.state.topBarList}/>
+                </div>
                 <header className="App-header">
                     <h1>
                     {this.state.teamNames[this.state.curTeam]} currently drafting
@@ -321,18 +325,7 @@ class DraftPageMaster extends React.Component {
                     </div>
                     
                 </div>
-                <div>
-                <Button href="../../tradingpage.html" color="primary" variant="contained" className="results">Results Page (TESTING ONLY)</Button>
-                </div>
                 
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >
-                    Built with React.js
-                 </a>
             </div>
         )
     }

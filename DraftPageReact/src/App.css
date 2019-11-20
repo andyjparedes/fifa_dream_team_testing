@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-image: url("https://i.pinimg.com/originals/19/1b/6d/191b6d669f008bfaf3950dd3e71ec2ca.jpg");
 }
 
 .App-logo {
@@ -9,19 +9,17 @@
 
 .App-header {
   min-height: 10vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 .draft-Body {
-  min-height: 90vh;
+  max-height: 90vh;
   max-width: 100vw;
   display: flex;
   flex-direction: row;
-  align-items:center;
   justify-content:center;
+  opacity:0.95;
 }
 
 .App-link {
@@ -29,4 +27,19 @@
 }
 .results {
   margin-bottom: 15px;
+}
+.Player-Boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  min-height: 125px;
+}
+.MuiCard-root {
+  margin-top: 5px;
+  margin-right: 10px;
+  min-width: 150px;
+}
+.MuiPaper-root {
+  color:#fff;
+  background-color: #1F1B24;
 }

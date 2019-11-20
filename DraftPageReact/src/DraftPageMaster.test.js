@@ -63,7 +63,7 @@ it('renders without crashing', () => {
   it('Drafting a Player,on the Last team, for normal draft successfully gets the next team', () => {
     const div = document.createElement('div');
     const wrapper = shallow(<DraftPageMaster/>);
-    wrapper.setState({draftType:"repeating"})
+    wrapper.setState({draftType:"repeating",numTeams:6,NumPlayersTeam:5})
     const instance = wrapper.instance();
     expect(wrapper.state().curTeam).toBe(1);
     instance.handleConfirmDraft();
@@ -80,7 +80,7 @@ it('renders without crashing', () => {
   it('Drafting a Player,on the Last team, for snake draft successfully gets the next team', () => {
     const div = document.createElement('div');
     const wrapper = shallow(<DraftPageMaster/>);
-    wrapper.setState({draftType:"snake"})
+    wrapper.setState({draftType:"snake",numTeams:6,NumPlayersTeam:5})
     const instance = wrapper.instance();
     expect(wrapper.state().curTeam).toBe(1);
     instance.handleConfirmDraft();

@@ -90,7 +90,7 @@ const test = {
 			<div 
 			className="ag-theme-balham-dark"
 			style={{ 
-			height: '50vh', 
+			height: '40vh', 
 			width: '35vw'}}>
 			<AgGridReact
 			  columnDefs={columns}
