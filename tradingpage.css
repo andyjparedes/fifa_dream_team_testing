@@ -10,7 +10,9 @@ body, html {
   font-family: sans-serif;
 
 }
-
+.text {
+  color: white;
+}
 #team1,#team2,#team3,#team4,#team5,#team6 { 
   text-align: center;
 }

@@ -1,4 +1,4 @@
-let numteams; // number of teams in this draft
+let numteams; // number of teams in this draft 
 
 /* 
  * load all of the participating teams info
@@ -12,19 +12,39 @@ function loadTeam(team, num) {
     // add and display the team name
     let head = document.createElement("p");
     let text = document.createTextNode(localStorage.getItem("index_team" + num));
+    head.setAttribute("class", "text");
     head.appendChild(text);
     let header = document.getElementById("team" + num);
     header.appendChild(head);
 
+    // create blocks
+    for (let j = 0; j < 4; j++) {
+        let block = document.createElement("div");
+        block.setAttribute("id", "team" + num + "_block" + (j+1));
+        header.appendChild(block);
+    }
+
     // iterate through all of the players and display them
-    for (let i = 0; i < localStorage.getItem("index_numplayers") - 1; i++) { // EDIT
+    for (let i = 0; i < localStorage.getItem("index_numplayers"); i++) { // EDIT
         // display players as buttons for enhanced user interface
         let button = document.createElement("BUTTON");
         button.setAttribute("id", "team" + num + "_player" + (i + 1));
         button.setAttribute("value", team[i].NAME);
         button.innerHTML = button.value;
-        let element = document.getElementById("team" + num);
-        element.appendChild(button); 
+
+        // put button in it's appropriate block
+        if (i < 8) {
+            document.getElementById("team" + num + "_block1").appendChild(button);
+        }
+        if (i > 7 && i < 16) {
+            document.getElementById("team" + num + "_block2").appendChild(button);
+        }
+        if (i > 15 && i < 24) {
+            document.getElementById("team" + num + "_block3").appendChild(button);
+        }
+        if (i > 23 && i < 26) {
+            document.getElementById("team" + num + "_block4").appendChild(button);
+        } 
     }
 }
  

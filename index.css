@@ -26,6 +26,9 @@ body, html {
   font-family: sans-serif;
   margin-bottom: 10px;
 }
+.text {
+  color: white;
+}
 #drop1 {
   background-color: #f3f3f3;
   color: rgb(0, 0, 0);

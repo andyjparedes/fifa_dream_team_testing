@@ -14,6 +14,7 @@ function loadTeam(team, num) {
     // add and display the team name
     let head = document.createElement("p");
     let text = document.createTextNode(localStorage.getItem("index_team" + num));
+    head.setAttribute("class", "text");
     head.appendChild(text);
     let header = document.getElementById("team" + num);
     header.appendChild(head);
@@ -26,7 +27,7 @@ function loadTeam(team, num) {
     }
 
     // load all of the players on the team and make them be buttons
-    for (let i = 0; i < localStorage.getItem("index_numplayers"); i++) { //EDIT
+    for (let i = 0; i < localStorage.getItem("index_numplayers"); i++) {
         let button = document.createElement("BUTTON");
         button.setAttribute("id", "team" + num + "_player" + (i + 1));
         button.setAttribute("value", team[i].NAME);
@@ -161,7 +162,7 @@ function tradePlayers(trade1, trade2) {
         // get the current team players
         let team = JSON.parse(localStorage.getItem("draft_t" + i));
         // search through each player for the traded players
-        for (let j = 0; j < localStorage.getItem("index_numplayers") - 1; j++) {
+        for (let j = 0; j < localStorage.getItem("index_numplayers"); j++) {
             let n = team[j].NAME.indexOf(trade1); // index for player to be traded out
             let m = team[j].NAME.indexOf(trade2); // index for player to be traded out
             // player-out found
