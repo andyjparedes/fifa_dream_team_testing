@@ -22,6 +22,7 @@ function inputTeamNames() {
         x.setAttribute("type", "text");
         x.setAttribute("padding", "12px 20px");
         x.setAttribute("id", "team" + (i+1));
+        x.maxLength = "30";
 
         //add the elements to the page
         teamnames.appendChild(head);
@@ -34,16 +35,34 @@ function inputTeamNames() {
  * stores the user input into local storage
  */
 function goToDraftPage() {
-    localStorage.setItem("index_numteams", document.getElementById("drop1").value);
-    for (let i = 0; i < document.getElementById("drop1").value; i++) {
-        localStorage.setItem("index_team" + (i+1), document.getElementById("team" + (i+1)).value);
+
+    // error checking
+    if ((document.getElementById("drop1").value) == "null") {
+        alert("Choose a number of teams for your draft!");
     }
-    localStorage.setItem("index_numplayers", document.getElementById("drop2").value);
-    localStorage.setItem("index_createteams", document.getElementById("drop3").value);
-    localStorage.setItem("index_roundtrans", document.getElementById("drop4").value);
-    localStorage.setItem("index_version", document.getElementById("drop5").value);
+    else if ((document.getElementById("drop2").value) == "null") {
+        alert("Choose a number of players per team for your draft!");
+    }
+    else {
+        localStorage.setItem("index_numteams", document.getElementById("drop1").value);
+        for (let i = 0; i < document.getElementById("drop1").value; i++) {
+            // more error checking
+            if (((document.getElementById("team" + (i+1)).value).charAt(0) == " ")
+            || ((document.getElementById("team" + (i+1)).value).charAt(document.getElementById("team" + (i+1)).value.length - 1) == " ")
+            || ((document.getElementById("team" + (i+1)).value).indexOf("  ") != -1)) {
+                alert("Bad whitespacing in team name(s)");
+            }
+            else {
+                localStorage.setItem("index_team" + (i+1), document.getElementById("team" + (i+1)).value);
+            }
+        }
+        localStorage.setItem("index_numplayers", document.getElementById("drop2").value);
+        localStorage.setItem("index_createteams", document.getElementById("drop3").value);
+        localStorage.setItem("index_roundtrans", document.getElementById("drop4").value);
+        localStorage.setItem("index_version", document.getElementById("drop5").value);
     
-    window.location = "DraftPageReact/build/index.html"; // go to Drafting Page
+        window.location = "DraftPageReact/build/index.html"; // go to Drafting Page
+    }
 }
 
 /* 
@@ -52,5 +71,5 @@ function goToDraftPage() {
 window.onload = function init() {
     this.document.getElementById("draftpage").addEventListener("click", goToDraftPage);
     this.document.getElementById("drop1").addEventListener("change", inputTeamNames);
-   // this.localStorage.clear(); // clear the local storage for testing or a new draft
+    this.localStorage.clear(); // clear the local storage for testing or a new draft
 }
