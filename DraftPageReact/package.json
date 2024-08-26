@@ -5,7 +5,7 @@
   "homepage": "./",
   "dependencies": {
     "@material-ui/core": "^4.5.2",
-    "ag-grid-community": "^21.2.2",
+    "ag-grid-community": "^31.3.4",
     "ag-grid-react": "^21.2.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
